@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { JwtModule, type JwtModuleOptions } from '@nestjs/jwt';
+import { EmailModule } from '../email/email.module.js';
 import { PrismaModule } from '../prisma/prisma.module.js';
+import { VerificationModule } from '../verification/verification.module.js';
 import { AuthController } from './auth.controller.js';
 import { AuthService } from './auth.service.js';
 
@@ -9,6 +11,8 @@ import { AuthService } from './auth.service.js';
   providers: [AuthService],
   imports: [
     PrismaModule,
+    VerificationModule,
+    EmailModule,
     JwtModule.registerAsync({
       global: true,
       useFactory: () => {

@@ -15,5 +15,5 @@ export class SignupDto {
 
 export class SignupResponseDto {
   @IsString()
-  accessToken: string;
+  message: string;
 }
