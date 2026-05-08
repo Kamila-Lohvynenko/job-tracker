@@ -10,7 +10,7 @@ export class VerifyEmailDto {
 
 export class VerifyEmailResponseDto {
   @IsString()
-  accessToken: string;
+  message: string;
 }
 
 export class ResendVerificationCodeDto {

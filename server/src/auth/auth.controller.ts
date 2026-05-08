@@ -1,5 +1,7 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Res } from '@nestjs/common';
+import type { Response } from 'express';
 import { AuthService } from './auth.service.js';
+import { Public } from './decorators/public.decorator.js';
 import { SigninDto, SigninResponseDto } from './dto/signin.dto.js';
 import { SignupDto, SignupResponseDto } from './dto/signup.dto.js';
 import {
@@ -13,25 +15,71 @@ import {
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @Public()
   @Post('/signup')
   signup(@Body() body: SignupDto): Promise<SignupResponseDto> {
     return this.authService.signup(body);
   }
 
+  @Public()
   @Post('/signin')
-  signin(@Body() body: SigninDto): Promise<SigninResponseDto> {
-    return this.authService.signin(body);
+  async signin(
+    @Body() body: SigninDto,
+    @Res({ passthrough: true }) res: Response,
+  ): Promise<SigninResponseDto> {
+    const { accessToken } = await this.authService.signin(body);
+
+    res.cookie('accessToken', accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    });
+
+    return {
+      message: 'Signin successful',
+    };
   }
 
+  @Public()
   @Post('/verify-email')
-  verifyEmail(@Body() body: VerifyEmailDto): Promise<VerifyEmailResponseDto> {
-    return this.authService.verifyEmail(body);
+  async verifyEmail(
+    @Body() body: VerifyEmailDto,
+    @Res({ passthrough: true }) res: Response,
+  ): Promise<VerifyEmailResponseDto> {
+    const { accessToken } = await this.authService.verifyEmail(body);
+
+    res.cookie('accessToken', accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    });
+
+    return {
+      message: 'Email verified successfully',
+    };
   }
 
+  @Public()
   @Post('/resend-verification-code')
   resendVerificationCode(
     @Body() body: ResendVerificationCodeDto,
   ): Promise<ResendVerificationCodeResponseDto> {
     return this.authService.resendVerificationCode(body);
+  }
+
+  @Public()
+  @Post('logout')
+  logout(@Res({ passthrough: true }) res: Response) {
+    res.clearCookie('accessToken', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+    });
+
+    return {
+      message: 'Logged out successfully',
+    };
   }
 }

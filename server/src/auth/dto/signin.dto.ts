@@ -10,5 +10,5 @@ export class SigninDto {
 
 export class SigninResponseDto {
   @IsString()
-  accessToken: string;
+  message: string;
 }

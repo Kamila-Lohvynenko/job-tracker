@@ -11,13 +11,12 @@ import * as bcrypt from 'bcrypt';
 import { EmailService } from '../email/email.service.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { VerificationService } from '../verification/verification.service.js';
-import { SigninDto, SigninResponseDto } from './dto/signin.dto.js';
+import { SigninDto } from './dto/signin.dto.js';
 import { SignupDto, SignupResponseDto } from './dto/signup.dto.js';
 import {
   ResendVerificationCodeDto,
   ResendVerificationCodeResponseDto,
   VerifyEmailDto,
-  VerifyEmailResponseDto,
 } from './dto/verify-email.dto.js';
 
 @Injectable()
@@ -57,7 +56,7 @@ export class AuthService {
     };
   }
 
-  async signin(signinDto: SigninDto): Promise<SigninResponseDto> {
+  async signin(signinDto: SigninDto): Promise<{ accessToken: string }> {
     const { email, password } = signinDto;
 
     const user = await this.prismaService.user.findUnique({
@@ -87,7 +86,7 @@ export class AuthService {
     return this.generateToken({ id: user.id });
   }
 
-  async verifyEmail(body: VerifyEmailDto): Promise<VerifyEmailResponseDto> {
+  async verifyEmail(body: VerifyEmailDto): Promise<{ accessToken: string }> {
     await this.verificationService.verifyCode(
       body.email,
       body.code,
