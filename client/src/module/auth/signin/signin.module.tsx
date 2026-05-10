@@ -1,5 +1,6 @@
 "use client";
 
+import { SelectThemeComponent } from "@/shared/components/select/theme";
 import { useSigninMutation } from "@/shared/rest-api/api/signin";
 import { useGetUserQuery } from "@/shared/rest-api/api/user";
 
@@ -9,7 +10,7 @@ const SigninModule = () => {
 
   const handleSignin = async () => {
     const response = await signinMutation({
-      email: "test@gmail.com",
+      email: "kamila.lohvynenko@gmail.com",
       password: "12345678",
     });
     console.log(response);
@@ -19,6 +20,7 @@ const SigninModule = () => {
 
   return (
     <div>
+      <SelectThemeComponent />
       <button onClick={handleSignin}>Signin</button>
     </div>
   );
