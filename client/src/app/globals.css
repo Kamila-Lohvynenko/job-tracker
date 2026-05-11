@@ -1,5 +1,123 @@
 @import "tailwindcss";
+@import "@heroui/styles";
 @custom-variant dark (&:where(.dark, .dark *));
+
+:root,
+[data-theme="light"] {
+  /* Brand */
+  --primary: #5d48dc;
+  --primary-hover: #654fe0;
+  --primary-active: #4f3ec6;
+  --primary-light: #8e7bff;
+  --primary-soft: #eeeaf8;
+  --primary-foreground: #ffffff;
+
+  /* Backgrounds */
+  --background: #f4f1fb;
+  --background-soft: #faf9fe;
+  --surface: #ffffff;
+  --surface-soft: #faf9fe;
+  --surface-muted: #eeeaf8;
+
+  /* Text */
+  --foreground: #0f172a;
+  --foreground-muted: #475569;
+  --foreground-subtle: #64748b;
+  --foreground-disabled: #94a3b8;
+
+  /* Borders / inputs */
+  --border: #e2def0;
+  --border-strong: #d5cdec;
+  --input: #ffffff;
+  --input-border: #dcd6ee;
+
+  /* States */
+  --success: #22c55e;
+  --success-soft: #ecfdf5;
+  --warning: #f59e0b;
+  --warning-soft: #fff7ed;
+  --danger: #ef4444;
+  --danger-soft: #fef2f2;
+
+  /* Shadows / glow */
+  --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+  --primary-glow: 0 0 28px rgba(93, 72, 220, 0.28);
+}
+
+.dark,
+[data-theme="dark"] {
+  /* Brand */
+  --primary: #5d48dc;
+  --primary-hover: #725ef2;
+  --primary-active: #4f3ec6;
+  --primary-light: #8b7cff;
+  --primary-soft: #1f1b3d;
+  --primary-foreground: #ffffff;
+
+  /* Backgrounds */
+  --background: #07111f;
+  --background-soft: #0b1730;
+  --surface: #111827;
+  --surface-soft: #161f35;
+  --surface-muted: #1e293b;
+
+  /* Text */
+  --foreground: #f8fafc;
+  --foreground-muted: #cbd5e1;
+  --foreground-subtle: #94a3b8;
+  --foreground-disabled: #64748b;
+
+  /* Borders / inputs */
+  --border: #243045;
+  --border-strong: #334155;
+  --input: #0f172a;
+  --input-border: #243045;
+
+  /* States */
+  --success: #22c55e;
+  --success-soft: #052e1a;
+  --warning: #f59e0b;
+  --warning-soft: #3b2505;
+  --danger: #ef4444;
+  --danger-soft: #3b0a0a;
+
+  /* Shadows / glow */
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --primary-glow: 0 0 34px rgba(114, 94, 242, 0.35);
+}
+
+/* Tailwind v4 theme tokens */
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-light: var(--primary-light);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-background: var(--background);
+  --color-background-soft: var(--background-soft);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-surface-muted: var(--surface-muted);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-foreground-disabled: var(--foreground-disabled);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-input-border: var(--input-border);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+}
 
 html,
 body {
@@ -13,4 +131,9 @@ body {
   padding: 0;
 
   font-family: Inter, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
 }

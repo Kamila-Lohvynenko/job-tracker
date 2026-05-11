@@ -11,12 +11,14 @@ export const SelectThemeComponent = () => {
   return (
     <Button
       onClick={thisService.handleChangeTheme}
-      isIconOnly
       aria-label="Change Theme"
+      variant="outline"
+      size="lg"
+      isIconOnly
     >
-      <Moon key={"theme-light"} size={20} className={"dark:hidden"} />
+      <Moon key={"theme-light"} className={"dark:hidden w-5 h-5"} />
 
-      <Sun key={"theme-dark"} size={20} className={"hidden dark:block"} />
+      <Sun key={"theme-dark"} className={"hidden dark:block w-5 h-5"} />
     </Button>
   );
 };

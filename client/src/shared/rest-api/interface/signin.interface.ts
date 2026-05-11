@@ -1,3 +1,5 @@
+import { IApiResponse } from "./common";
+
 export enum ESigninApi {
   API_SIGNIN = "auth/signin",
 }
@@ -11,6 +13,6 @@ export interface ISigninRequest {
   password: string;
 }
 
-export interface ISigninResponse {
+export interface ISigninResponse extends IApiResponse {
   message: string;
 }
