@@ -1,5 +1,6 @@
 "use client";
 
+import * as m from "@/paraglide/messages";
 import { useSigninMutation } from "@/shared/rest-api/api/signin";
 import { useGetUserQuery } from "@/shared/rest-api/api/user";
 
@@ -19,6 +20,7 @@ const SigninModule = () => {
 
   return (
     <div>
+      <h1>{m.signin_title()}</h1>
       <button onClick={handleSignin}>Signin</button>
     </div>
   );

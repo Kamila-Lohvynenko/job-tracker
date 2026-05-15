@@ -15,6 +15,7 @@ export const SelectThemeComponent = () => {
       variant="outline"
       size="lg"
       isIconOnly
+      className="text-foreground-muted hover:text-foreground"
     >
       <Moon key={"theme-light"} className={"dark:hidden w-5 h-5"} />
 

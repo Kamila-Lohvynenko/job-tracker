@@ -7,6 +7,7 @@
     "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && next build",
     "start": "next start",
     "lint": "eslint",
+    "paraglide:compile": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide",
     "machine-translate": "inlang machine translate --project project.inlang"
   },
   "dependencies": {
