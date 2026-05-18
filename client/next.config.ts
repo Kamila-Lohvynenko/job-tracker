@@ -1,3 +1,4 @@
+import { paraglideWebpackPlugin } from "@inlang/paraglide-js";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -16,6 +17,14 @@ const nextConfig: NextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
+
+    config.plugins.push(
+      paraglideWebpackPlugin({
+        outdir: "./src/paraglide",
+        project: "./project.inlang",
+        strategy: ["url", "cookie", "baseLocale"],
+      }),
+    );
 
     return config;
   },
