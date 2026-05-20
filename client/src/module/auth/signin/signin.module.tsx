@@ -11,17 +11,32 @@ import NextLink from "next/link";
 
 const SigninModule = () => {
   return (
-    <div className="flex items-center justify-center gap-4 min-h-screen">
-      <Image src={LogoImage} alt="Logo" width={600} height={600} />
+    <div className="flex items-center justify-center min-h-screen w-full max-w-7xl gap-24">
+      <div className="hidden lg:block">
+        <h2 className="text-3xl font-bold mb-4">
+          {m.signin_advantages_title()}
+        </h2>
 
-      <Card className="p-7 w-full max-w-md">
+        <p className="text-gray-500 mb-8">
+          {m.signin_advantages_description()}
+        </p>
+
+        <Image
+          src={LogoImage}
+          loading="eager"
+          alt="Logo"
+          className="w-[300px] h-[300px]"
+        />
+      </div>
+
+      <Card className="p-8 md:px-14 w-full max-w-lg shadow-xl">
         <h1 className="text-2xl font-bold">{m.signin_page_title()}</h1>
         <p className=" text-gray-500">{m.signin_page_description()}</p>
 
         <SigninFormComponent />
 
-        <div>
-          <span>{m.signin_dont_have_account()} </span>
+        <div className="text-center text-sm">
+          <span className="text-gray-500">{m.signin_dont_have_account()} </span>
 
           <NextLink
             href={ERoutes.SIGNUP}

@@ -1,5 +1,7 @@
 import * as m from "@/paraglide/messages";
 import { Button, FieldError, Input, Label, TextField } from "@heroui/react";
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 import { Controller } from "react-hook-form";
 import { PasswordRequirementComponent } from "../password-requirement";
 import { SignupFormService } from "./signup-form.service";
@@ -9,6 +11,11 @@ export const SignupFormComponent = () => {
   const thisService = SignupFormService();
 
   const { passwordRules, onSubmit } = thisService;
+
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState(false);
+
   // return
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-5">
@@ -50,10 +57,22 @@ export const SignupFormComponent = () => {
                 {m.signup_form_password_label()}
               </Label>
 
-              <Input
-                {...field}
-                placeholder={m.signup_form_password_placeholder()}
-              />
+              <div className="relative">
+                <Input
+                  {...field}
+                  placeholder={m.signup_form_password_placeholder()}
+                  type={isPasswordVisible ? "text" : "password"}
+                  className="w-full pr-10"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setIsPasswordVisible((prev) => !prev)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
+                >
+                  {isPasswordVisible ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
 
               <FieldError>{fieldState.error?.message}</FieldError>
             </TextField>
@@ -86,10 +105,26 @@ export const SignupFormComponent = () => {
               {m.signup_form_confirm_password_label()}
             </Label>
 
-            <Input
-              {...field}
-              placeholder={m.signup_form_confirm_password_placeholder()}
-            />
+            <div className="relative">
+              <Input
+                {...field}
+                placeholder={m.signup_form_confirm_password_placeholder()}
+                type={isConfirmPasswordVisible ? "text" : "password"}
+                className="w-full pr-10"
+              />
+
+              <button
+                type="button"
+                onClick={() => setIsConfirmPasswordVisible((prev) => !prev)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
+              >
+                {isConfirmPasswordVisible ? (
+                  <EyeOff size={18} />
+                ) : (
+                  <Eye size={18} />
+                )}
+              </button>
+            </div>
 
             <FieldError>{fieldState.error?.message}</FieldError>
           </TextField>
