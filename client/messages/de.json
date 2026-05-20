@@ -42,5 +42,16 @@
   "signin_form_submit_button_label": "Melde dich an",
   "signin_dont_have_account": "Hast du noch kein Konto?",
   "signin_advantages_title": "Willkommen zurück!",
-  "signin_advantages_description": "Melde dich an, um dein Konto zu verwenden."
+  "signin_advantages_description": "Melde dich an, um dein Konto zu verwenden.",
+
+  "verify_email_page_title": "Verifiziere deine Email",
+  "verify_email_page_description": "Wir haben einen 6-stelligen Verifizierungscode an deine Email gesendet.",
+  "verify_email_form_title": "Verifizierungscode eingeben",
+  "verify_email_form_description": "Überprüfe deine Email und gib den Code unten ein.",
+  "verify_email_form_resend_button_label": "Code erneut senden",
+  "verify_email_form_resend_button_description": "Hast du den Code nicht erhalten?",
+  "verify_email_form_submit_button_label": "Email verifizieren",
+  "verify_email_back_to_signup_link_label": "Zurück zur Registrierung",
+  "verify_email_form_code_required": "Code ist erforderlich",
+  "verify_email_form_code_min_length": "Code muss 6 Ziffern lang sein"
 }

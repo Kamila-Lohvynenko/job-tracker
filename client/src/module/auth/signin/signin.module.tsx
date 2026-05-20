@@ -1,6 +1,6 @@
 "use client";
 
-import LogoImage from "@/images/signin.png";
+import SigninImage from "@/images/signin.png";
 import * as m from "@/paraglide/messages";
 import Image from "next/image";
 import { SigninFormComponent } from "./element/signin-form";
@@ -22,9 +22,9 @@ const SigninModule = () => {
         </p>
 
         <Image
-          src={LogoImage}
+          src={SigninImage}
           loading="eager"
-          alt="Logo"
+          alt="Signin"
           className="w-[300px] h-[300px]"
         />
       </div>

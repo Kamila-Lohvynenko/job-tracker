@@ -43,5 +43,16 @@
   "signin_form_submit_button_label": "Sign in",
   "signin_dont_have_account": "Don't have an account?",
   "signin_advantages_title": "Welcome back!",
-  "signin_advantages_description": "Sign in to continue tracking your job search."
+  "signin_advantages_description": "Sign in to continue tracking your job search.",
+
+  "verify_email_page_title": "Verify your email",
+  "verify_email_page_description": "We've sent a 6-digit verification code to your email.",
+  "verify_email_form_title": "Enter verification code",
+  "verify_email_form_description": "Check your email and enter the code below.",
+  "verify_email_form_resend_button_label": "Resend code",
+  "verify_email_form_resend_button_description": "Didn't receive the code?",
+  "verify_email_form_submit_button_label": "Verify email",
+  "verify_email_back_to_signup_link_label": "Back to sign up",
+  "verify_email_form_code_required": "Code is required",
+  "verify_email_form_code_min_length": "Code must be 6 digits"
 }

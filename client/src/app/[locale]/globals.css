@@ -154,4 +154,41 @@ body {
       @apply border-none bg-danger-soft text-danger;
     }
   }
+
+  .input-otp {
+    @apply gap-3;
+  }
+
+  .input-otp__group {
+    @apply gap-2;
+  }
+
+  .input-otp__slot {
+    @apply flex size-10 items-center justify-center rounded-md border border-border bg-surface text-sm font-semibold shadow-sm transition-colors outline-none sm:size-14;
+
+    &:hover,
+    &[data-hovered="true"] {
+      @apply bg-surface-soft border-border-strong;
+    }
+
+    &[data-active="true"] {
+      @apply z-10 border-primary ring-1 ring-primary/10;
+    }
+
+    &[data-filled="true"] {
+      @apply bg-surface-soft;
+    }
+
+    &[data-invalid="true"] {
+      @apply border-none bg-danger-soft text-danger;
+    }
+  }
+
+  .input-otp__caret {
+    @apply bg-primary;
+  }
+
+  .input-otp__separator {
+    @apply h-1 w-2 shrink-0 rounded-full bg-border-strong;
+  }
 }
