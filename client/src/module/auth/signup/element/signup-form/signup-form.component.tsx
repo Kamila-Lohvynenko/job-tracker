@@ -1,5 +1,12 @@
 import * as m from "@/paraglide/messages";
-import { Button, FieldError, Input, Label, TextField } from "@heroui/react";
+import {
+  Alert,
+  Button,
+  FieldError,
+  Input,
+  Label,
+  TextField,
+} from "@heroui/react";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
@@ -18,59 +25,122 @@ export const SignupFormComponent = () => {
 
   // return
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-5">
-      <Controller
-        control={thisService.control}
-        name="name"
-        render={({ field, fieldState }) => (
-          <TextField isInvalid={fieldState.invalid}>
-            <Label className="text-base">{m.signup_form_name_label()}</Label>
-
-            <Input {...field} placeholder={m.signup_form_name_placeholder()} />
-
-            <FieldError>{fieldState.error?.message}</FieldError>
-          </TextField>
-        )}
-      />
-
-      <Controller
-        control={thisService.control}
-        name="email"
-        render={({ field, fieldState }) => (
-          <TextField isInvalid={fieldState.invalid}>
-            <Label className="text-base">{m.signin_form_email_label()}</Label>
-
-            <Input {...field} placeholder={m.signin_form_email_placeholder()} />
-
-            <FieldError>{fieldState.error?.message}</FieldError>
-          </TextField>
-        )}
-      />
-
-      <div>
+    <>
+      <form onSubmit={onSubmit} className="flex flex-col gap-5">
         <Controller
           control={thisService.control}
-          name="password"
+          name="name"
+          render={({ field, fieldState }) => (
+            <TextField isInvalid={fieldState.invalid}>
+              <Label className="text-base">{m.signup_form_name_label()}</Label>
+
+              <Input
+                {...field}
+                placeholder={m.signup_form_name_placeholder()}
+              />
+
+              <FieldError>{fieldState.error?.message}</FieldError>
+            </TextField>
+          )}
+        />
+
+        <Controller
+          control={thisService.control}
+          name="email"
+          render={({ field, fieldState }) => (
+            <TextField isInvalid={fieldState.invalid}>
+              <Label className="text-base">{m.signin_form_email_label()}</Label>
+
+              <Input
+                {...field}
+                placeholder={m.signin_form_email_placeholder()}
+              />
+
+              <FieldError>{fieldState.error?.message}</FieldError>
+            </TextField>
+          )}
+        />
+
+        <div>
+          <Controller
+            control={thisService.control}
+            name="password"
+            render={({ field, fieldState }) => (
+              <TextField isInvalid={fieldState.invalid}>
+                <Label className="text-base">
+                  {m.signup_form_password_label()}
+                </Label>
+
+                <div className="relative">
+                  <Input
+                    {...field}
+                    placeholder={m.signup_form_password_placeholder()}
+                    type={isPasswordVisible ? "text" : "password"}
+                    className="w-full pr-10"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => setIsPasswordVisible((prev) => !prev)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
+                  >
+                    {isPasswordVisible ? (
+                      <EyeOff size={18} />
+                    ) : (
+                      <Eye size={18} />
+                    )}
+                  </button>
+                </div>
+
+                <FieldError>{fieldState.error?.message}</FieldError>
+              </TextField>
+            )}
+          />
+          <div className="mt-2 flex flex-col gap-1 pl-3">
+            <PasswordRequirementComponent
+              isValid={passwordRules.minLength}
+              label={m.signup_form_password_requirements_min_length()}
+            />
+
+            <PasswordRequirementComponent
+              isValid={passwordRules.hasNumber}
+              label={m.signup_form_password_requirements_has_number()}
+            />
+
+            <PasswordRequirementComponent
+              isValid={passwordRules.hasUppercase}
+              label={m.signup_form_password_requirements_has_uppercase()}
+            />
+          </div>{" "}
+        </div>
+
+        <Controller
+          control={thisService.control}
+          name="confirmPassword"
           render={({ field, fieldState }) => (
             <TextField isInvalid={fieldState.invalid}>
               <Label className="text-base">
-                {m.signup_form_password_label()}
+                {m.signup_form_confirm_password_label()}
               </Label>
 
               <div className="relative">
                 <Input
                   {...field}
-                  placeholder={m.signup_form_password_placeholder()}
-                  type={isPasswordVisible ? "text" : "password"}
+                  placeholder={m.signup_form_confirm_password_placeholder()}
+                  type={isConfirmPasswordVisible ? "text" : "password"}
                   className="w-full pr-10"
                 />
 
                 <button
                   type="button"
-                  onClick={() => setIsPasswordVisible((prev) => !prev)}
+                  onClick={() => setIsConfirmPasswordVisible((prev) => !prev)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
                 >
-                  {isPasswordVisible ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {isConfirmPasswordVisible ? (
+                    <EyeOff size={18} />
+                  ) : (
+                    <Eye size={18} />
+                  )}
                 </button>
               </div>
 
@@ -78,67 +148,48 @@ export const SignupFormComponent = () => {
             </TextField>
           )}
         />
-        <div className="mt-2 flex flex-col gap-1 pl-3">
-          <PasswordRequirementComponent
-            isValid={passwordRules.minLength}
-            label={m.signup_form_password_requirements_min_length()}
-          />
 
-          <PasswordRequirementComponent
-            isValid={passwordRules.hasNumber}
-            label={m.signup_form_password_requirements_has_number()}
-          />
+        <Button
+          type="submit"
+          fullWidth
+          className="bg-primary text-white hover:bg-primary-hover rounded-sm"
+          size="lg"
+        >
+          {m.signup_form_submit_button_label()}
+        </Button>
+      </form>
 
-          <PasswordRequirementComponent
-            isValid={passwordRules.hasUppercase}
-            label={m.signup_form_password_requirements_has_uppercase()}
-          />
-        </div>{" "}
-      </div>
+      {thisService.isEmailAlreadyExistsError && (
+        <Alert
+          status="danger"
+          className="bg-danger-soft text-danger rounded-sm"
+        >
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>
+              {m.signup_error_email_already_exists_title()}
+            </Alert.Title>
+            <Alert.Description>
+              {m.signup_error_email_already_exists_description()}
+            </Alert.Description>
+          </Alert.Content>
+        </Alert>
+      )}
 
-      <Controller
-        control={thisService.control}
-        name="confirmPassword"
-        render={({ field, fieldState }) => (
-          <TextField isInvalid={fieldState.invalid}>
-            <Label className="text-base">
-              {m.signup_form_confirm_password_label()}
-            </Label>
-
-            <div className="relative">
-              <Input
-                {...field}
-                placeholder={m.signup_form_confirm_password_placeholder()}
-                type={isConfirmPasswordVisible ? "text" : "password"}
-                className="w-full pr-10"
-              />
-
-              <button
-                type="button"
-                onClick={() => setIsConfirmPasswordVisible((prev) => !prev)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
-              >
-                {isConfirmPasswordVisible ? (
-                  <EyeOff size={18} />
-                ) : (
-                  <Eye size={18} />
-                )}
-              </button>
-            </div>
-
-            <FieldError>{fieldState.error?.message}</FieldError>
-          </TextField>
-        )}
-      />
-
-      <Button
-        type="submit"
-        fullWidth
-        className="bg-primary text-white hover:bg-primary-hover rounded-sm"
-        size="lg"
-      >
-        {m.signup_form_submit_button_label()}
-      </Button>
-    </form>
+      {thisService.error && (
+        <Alert
+          status="danger"
+          className="bg-danger-soft text-danger rounded-sm"
+        >
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>{m.common_error_title()}</Alert.Title>
+            <Alert.Description>
+              {m.common_error_description()}
+            </Alert.Description>
+          </Alert.Content>
+        </Alert>
+      )}
+    </>
   );
 };

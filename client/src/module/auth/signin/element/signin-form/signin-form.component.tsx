@@ -97,9 +97,9 @@ export const SigninFormComponent = () => {
         >
           <Alert.Indicator />
           <Alert.Content>
-            <Alert.Title>Error</Alert.Title>
+            <Alert.Title>{m.signin_authorized_error_title()}</Alert.Title>
             <Alert.Description>
-              Password or email is incorrect. Please try again.
+              {m.signin_authorized_error_description()}
             </Alert.Description>
           </Alert.Content>
         </Alert>

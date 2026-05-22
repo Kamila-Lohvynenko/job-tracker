@@ -1,6 +1,10 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "example_message": "Guten Tag {username}",
+
+  "common_error_title": "Fehler",
+  "common_error_description": "Etwas ist schief gelaufen. Bitte versuche es erneut.",
+
   "signup": "Registrieren",
   "signup_page_title": "Erstelle ein Konto",
   "signup_form_name_label": "Name",
@@ -32,6 +36,8 @@
   "signup_advantages_item_2_description": "Verwalte Interviews, Notizen und Follow-ups.",
   "signup_advantages_item_3_title": "Erhalte Insights",
   "signup_advantages_item_3_description": "Analysiere deinen Fortschritt und verbessere deine Ergebnisse.",
+  "signup_error_email_already_exists_title": "Email bereits vorhanden",
+  "signup_error_email_already_exists_description": "Die Email, die du eingegeben hast, ist bereits in Verwendung. Bitte versuche es erneut mit einer anderen Email oder melde dich an.",
 
   "signin_page_title": "Willkommen zurück!",
   "signin_page_description": "Melde dich an, um dein Konto zu verwenden",
@@ -58,5 +64,7 @@
   "verify_email_form_submit_button_label": "Email verifizieren",
   "verify_email_back_to_signin_link_label": "Zurück zur Anmeldung",
   "verify_email_form_code_required": "Code ist erforderlich",
-  "verify_email_form_code_min_length": "Code muss 6 Ziffern lang sein"
+  "verify_email_form_code_min_length": "Code muss 6 Ziffern lang sein",
+  "verify_email_form_error_invalid_code_title": "Ungültiger Code",
+  "verify_email_form_error_invalid_code_description": "Der Code, den du eingegeben hast, ist ungültig. Bitte versuche es erneut."
 }

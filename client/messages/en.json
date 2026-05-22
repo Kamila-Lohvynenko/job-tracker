@@ -1,6 +1,9 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "example_message": "Hello world {username}",
+  "common_error_title": "Error",
+  "common_error_description": "Something went wrong. Please try again.",
+
   "signup": "Sign up",
   "signup_page_title": "Create an account",
   "signup_form_name_label": "Full name",
@@ -32,6 +35,8 @@
   "signup_advantages_item_2_description": "Manage interviews, notes, and follow-ups.",
   "signup_advantages_item_3_title": "Get insights",
   "signup_advantages_item_3_description": "Analyze your progress and improve results.",
+  "signup_error_email_already_exists_title": "Email already exists",
+  "signup_error_email_already_exists_description": "The email you entered is already in use. Please try again with a different email or sign in.",
 
   "signin": "Sign in",
   "signin_page_title": "Sign in to your account",
@@ -59,5 +64,7 @@
   "verify_email_form_submit_button_label": "Verify email",
   "verify_email_back_to_signin_link_label": "Back to sign in",
   "verify_email_form_code_required": "Code is required",
-  "verify_email_form_code_min_length": "Code must be 6 digits"
+  "verify_email_form_code_min_length": "Code must be 6 digits",
+  "verify_email_form_error_invalid_code_title": "Invalid code",
+  "verify_email_form_error_invalid_code_description": "The code you entered is invalid. Please try again."
 }
