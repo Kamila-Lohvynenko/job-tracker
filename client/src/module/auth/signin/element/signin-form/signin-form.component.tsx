@@ -81,6 +81,7 @@ export const SigninFormComponent = () => {
           fullWidth
           className="bg-primary text-white hover:bg-primary-hover rounded-sm"
           size="lg"
+          isPending={thisService.isPending}
         >
           {m.signin_form_submit_button_label()}
         </Button>

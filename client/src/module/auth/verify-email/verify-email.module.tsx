@@ -3,14 +3,20 @@
 import VerifyEmailImage from "@/images/verify-email.png";
 import * as m from "@/paraglide/messages";
 import { ERoutes } from "@/shared/routes/routes.interface";
-import { Button, Card } from "@heroui/react";
+import { Alert, Button, Card } from "@heroui/react";
 import { MoveLeft, RefreshCcw } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { VerifyEmailFormComponent } from "./element/verify-email-form";
+import { VerifyEmailService } from "./verify-email.service";
 
 // component
 const VerifyEmailModule = () => {
+  const thisService = VerifyEmailService();
+  const { error, isResendVerificationCodePending, resendVerificationEmail } =
+    thisService;
+
+  // return
   return (
     <div className="flex flex-col items-center justify-center gap-6 min-h-[calc(100vh-92px)] w-full md:min-h-[calc(100vh-104px)] lg:gap-14 lg:flex-row">
       <div className="max-w-[335px] sm:max-w-full">
@@ -36,6 +42,21 @@ const VerifyEmailModule = () => {
 
         <VerifyEmailFormComponent />
 
+        {error && (
+          <Alert
+            status="danger"
+            className="bg-danger-soft text-danger rounded-sm"
+          >
+            <Alert.Indicator />
+            <Alert.Content>
+              <Alert.Title>{m.common_error_title()}</Alert.Title>
+              <Alert.Description>
+                {m.common_error_description()}
+              </Alert.Description>
+            </Alert.Content>
+          </Alert>
+        )}
+
         <div className="flex items-center justify-between gap-2 text-sm">
           <span className="text-gray-500">
             {m.verify_email_form_resend_button_description()}
@@ -44,8 +65,15 @@ const VerifyEmailModule = () => {
           <Button
             variant="secondary"
             className="flex flex-wrap gap-3 text-primary bg-transparent hover:text-primary-hover hover:bg-primary-soft"
+            isDisabled={isResendVerificationCodePending}
+            onPress={resendVerificationEmail}
           >
-            <RefreshCcw size={16} />
+            <RefreshCcw
+              size={16}
+              className={
+                isResendVerificationCodePending ? "animate-spin" : undefined
+              }
+            />
 
             {m.verify_email_form_resend_button_label()}
           </Button>

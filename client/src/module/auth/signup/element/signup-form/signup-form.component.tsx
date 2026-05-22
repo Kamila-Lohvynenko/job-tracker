@@ -17,7 +17,13 @@ import { SignupFormService } from "./signup-form.service";
 export const SignupFormComponent = () => {
   const thisService = SignupFormService();
 
-  const { passwordRules, onSubmit } = thisService;
+  const {
+    passwordRules,
+    onSubmit,
+    isPending,
+    isEmailAlreadyExistsError,
+    error,
+  } = thisService;
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
@@ -154,12 +160,13 @@ export const SignupFormComponent = () => {
           fullWidth
           className="bg-primary text-white hover:bg-primary-hover rounded-sm"
           size="lg"
+          isPending={isPending}
         >
           {m.signup_form_submit_button_label()}
         </Button>
       </form>
 
-      {thisService.isEmailAlreadyExistsError && (
+      {isEmailAlreadyExistsError && (
         <Alert
           status="danger"
           className="bg-danger-soft text-danger rounded-sm"
@@ -176,7 +183,7 @@ export const SignupFormComponent = () => {
         </Alert>
       )}
 
-      {thisService.error && (
+      {error && (
         <Alert
           status="danger"
           className="bg-danger-soft text-danger rounded-sm"
