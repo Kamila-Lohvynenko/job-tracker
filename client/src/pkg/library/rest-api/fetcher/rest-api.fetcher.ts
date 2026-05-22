@@ -4,4 +4,5 @@ import ky, { type KyInstance } from "ky";
 export const restApiFetcher: KyInstance = ky.create({
   prefix: process.env.NEXT_PUBLIC_API_URL,
   credentials: "include",
+  throwHttpErrors: false,
 });

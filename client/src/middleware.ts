@@ -61,7 +61,10 @@ export function middleware(req: NextRequest) {
 
     const locale = validSavedLocale ?? browserLocale ?? baseLocale;
 
-    return NextResponse.redirect(new URL(`/${locale}${pathname}`, req.url));
+    const url = new URL(`/${locale}${pathname}`, req.url);
+    url.search = req.nextUrl.search;
+
+    return NextResponse.redirect(url);
   }
 
   const pathnameWithoutLocale = removeLocaleFromPathname(

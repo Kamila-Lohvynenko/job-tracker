@@ -1,8 +1,18 @@
+"use client";
+
 import * as m from "@/paraglide/messages";
-import { Button, FieldError, Input, Label, TextField } from "@heroui/react";
+import {
+  Alert,
+  Button,
+  FieldError,
+  Input,
+  Label,
+  TextField,
+} from "@heroui/react";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
+import { VerifyEmailError } from "../verify-email-error";
 import { SigninFormService } from "./signin-form.service";
 
 // component
@@ -13,64 +23,87 @@ export const SigninFormComponent = () => {
 
   // return
   return (
-    <form onSubmit={thisService.onSubmit} className="flex flex-col gap-5">
-      <Controller
-        control={thisService.control}
-        name="email"
-        render={({ field, fieldState }) => (
-          <TextField isInvalid={fieldState.invalid}>
-            <Label className="text-base">{m.signin_form_email_label()}</Label>
+    <>
+      <form onSubmit={thisService.onSubmit} className="flex flex-col gap-5">
+        <Controller
+          control={thisService.control}
+          name="email"
+          render={({ field, fieldState }) => (
+            <TextField isInvalid={fieldState.invalid}>
+              <Label className="text-base">{m.signin_form_email_label()}</Label>
 
-            <Input
-              {...field}
-              placeholder={m.signin_form_email_placeholder()}
-              type={isPasswordVisible ? "text" : "password"}
-            />
-
-            <FieldError>{fieldState.error?.message}</FieldError>
-          </TextField>
-        )}
-      />
-
-      <Controller
-        control={thisService.control}
-        name="password"
-        render={({ field, fieldState }) => (
-          <TextField isInvalid={fieldState.invalid}>
-            <Label className="text-base">
-              {m.signin_form_password_label()}
-            </Label>
-
-            <div className="relative">
               <Input
                 {...field}
-                placeholder={m.signin_form_password_placeholder()}
-                type={isPasswordVisible ? "text" : "password"}
-                className="w-full pr-10"
+                placeholder={m.signin_form_email_placeholder()}
+                type={"email"}
+                autoComplete="off"
               />
 
-              <button
-                type="button"
-                onClick={() => setIsPasswordVisible((prev) => !prev)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
-              >
-                {isPasswordVisible ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
-            </div>
+              <FieldError>{fieldState.error?.message}</FieldError>
+            </TextField>
+          )}
+        />
 
-            <FieldError>{fieldState.error?.message}</FieldError>
-          </TextField>
-        )}
-      />
+        <Controller
+          control={thisService.control}
+          name="password"
+          render={({ field, fieldState }) => (
+            <TextField isInvalid={fieldState.invalid}>
+              <Label className="text-base">
+                {m.signin_form_password_label()}
+              </Label>
 
-      <Button
-        type="submit"
-        fullWidth
-        className="bg-primary text-white hover:bg-primary-hover rounded-sm"
-        size="lg"
-      >
-        {m.signin_form_submit_button_label()}
-      </Button>
-    </form>
+              <div className="relative">
+                <Input
+                  {...field}
+                  placeholder={m.signin_form_password_placeholder()}
+                  type={isPasswordVisible ? "text" : "password"}
+                  className="w-full pr-10"
+                  autoComplete="off"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setIsPasswordVisible((prev) => !prev)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
+                >
+                  {isPasswordVisible ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+
+              <FieldError>{fieldState.error?.message}</FieldError>
+            </TextField>
+          )}
+        />
+
+        <Button
+          type="submit"
+          fullWidth
+          className="bg-primary text-white hover:bg-primary-hover rounded-sm"
+          size="lg"
+        >
+          {m.signin_form_submit_button_label()}
+        </Button>
+      </form>
+
+      {thisService.isEmailNotVerifiedError && (
+        <VerifyEmailError email={thisService.email} />
+      )}
+
+      {thisService.isAuthorizedError && (
+        <Alert
+          status="danger"
+          className="bg-danger-soft text-danger rounded-sm"
+        >
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>Error</Alert.Title>
+            <Alert.Description>
+              Password or email is incorrect. Please try again.
+            </Alert.Description>
+          </Alert.Content>
+        </Alert>
+      )}
+    </>
   );
 };

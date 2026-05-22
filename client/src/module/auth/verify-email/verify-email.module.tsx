@@ -1,8 +1,12 @@
+"use client";
+
 import VerifyEmailImage from "@/images/verify-email.png";
 import * as m from "@/paraglide/messages";
+import { ERoutes } from "@/shared/routes/routes.interface";
 import { Button, Card } from "@heroui/react";
-import { RefreshCcw } from "lucide-react";
+import { MoveLeft, RefreshCcw } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { VerifyEmailFormComponent } from "./element/verify-email-form";
 
 // component
@@ -46,6 +50,15 @@ const VerifyEmailModule = () => {
             {m.verify_email_form_resend_button_label()}
           </Button>
         </div>
+
+        <Link
+          href={ERoutes.SIGNIN}
+          className="flex items-center justify-center gap-2 text-primary text-sm hover:text-primary-hover"
+        >
+          <MoveLeft size={16} />
+
+          {m.verify_email_back_to_signin_link_label()}
+        </Link>
       </Card>
     </div>
   );

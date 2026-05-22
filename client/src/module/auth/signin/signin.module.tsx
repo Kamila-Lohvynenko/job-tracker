@@ -9,7 +9,9 @@ import { ERoutes } from "@/shared/routes/routes.interface";
 import { Card } from "@heroui/react";
 import NextLink from "next/link";
 
+// component
 const SigninModule = () => {
+  // return
   return (
     <div className="flex items-center justify-center min-h-screen w-full max-w-7xl gap-24">
       <div className="hidden lg:block">
