@@ -5,17 +5,19 @@ import { FC } from "react";
 // interfaces
 interface ILogoComponentProps {
   isCollapsed: boolean;
+  className?: string;
 }
 
 // component
 export const LogoComponent: FC<ILogoComponentProps> = (props) => {
-  const { isCollapsed } = props;
+  const { isCollapsed, className } = props;
 
   return (
     <div
       className={cn(
         "flex items-center gap-2",
         isCollapsed ? "justify-center" : "pl-1",
+        className,
       )}
     >
       <LogoIcon width={32} height={32} />

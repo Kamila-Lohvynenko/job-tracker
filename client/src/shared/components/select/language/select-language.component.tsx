@@ -11,7 +11,7 @@ export const SelectLanguageComponent = () => {
       aria-label="Change Language"
       variant="outline"
       size="lg"
-      onPress={thisService.handleChangeLanguage}
+      onClick={thisService.handleChangeLanguage}
       className="text-foreground-muted hover:text-foreground"
     >
       {thisService.nextLocale.toUpperCase()}
