@@ -22,6 +22,8 @@ model User {
   updatedAt         DateTime                @updatedAt
 
   verificationCodes VerificationCode[]
+  applications      Application[]
+  applicationEvents ApplicationEvent[]
 
   @@map("users")
 }
@@ -44,4 +46,114 @@ model VerificationCode {
 enum VerificationCodeType {
   EMAIL_VERIFICATION
   EMAIL_RESET
+}
+
+
+model Application {
+  id             String            @id @default(uuid())
+  userId         String
+
+  company        String
+  role           String
+  status         ApplicationStatus @default(APPLIED)
+
+  source         ApplicationSource?
+  jobLink        String?
+  location       String?
+  employmentType EmploymentType?
+
+  salaryMin      Int?
+  salaryMax      Int?
+  currency       String?
+
+  notes          String?
+  appliedAt      DateTime
+
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  user           User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  events         ApplicationEvent[]
+
+  @@index([userId])
+  @@map("applications")
+}
+
+model ApplicationEvent {
+  id            String                 @id @default(uuid())
+  userId        String
+  applicationId String
+
+  type          ApplicationEventType
+  status        ApplicationEventStatus @default(COMPLETED)
+
+  title         String
+  description   String?
+  eventDate     DateTime?
+
+  createdAt     DateTime               @default(now())
+  updatedAt     DateTime               @updatedAt
+
+  user          User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  application   Application             @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([applicationId])
+  @@map("application_events")
+}
+
+enum ApplicationStatus {
+  WISHLIST
+  APPLIED
+  HR_SCREEN
+  INTERVIEW
+  TECHNICAL
+  TAKE_HOME
+  FINAL
+  OFFER
+  REJECTED
+  WITHDRAWN
+  ARCHIVED
+}
+
+enum ApplicationEventType {
+  APPLICATION_SUBMITTED
+  HR_INTERVIEW
+  TECHNICAL_INTERVIEW
+  TAKE_HOME_TASK
+  LIVE_CODING
+  SYSTEM_DESIGN
+  FINAL_INTERVIEW
+  OFFER
+  REJECTION
+  FOLLOW_UP
+  NOTE
+  CUSTOM
+}
+
+enum ApplicationEventStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+}
+
+enum ApplicationSource {
+  LINKEDIN
+  INDEED
+  COMPANY_WEBSITE
+  WELLFOUND
+  GLASSDOOR
+  REFERRAL
+  RECRUITER
+  EMAIL
+  OTHER
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+  FREELANCE
+  TEMPORARY
 }
