@@ -66,5 +66,12 @@
   "verify_email_form_code_required": "Code is required",
   "verify_email_form_code_min_length": "Code must be 6 digits",
   "verify_email_form_error_invalid_code_title": "Invalid code",
-  "verify_email_form_error_invalid_code_description": "The code you entered is invalid. Please try again."
+  "verify_email_form_error_invalid_code_description": "The code you entered is invalid. Please try again.",
+
+  "sidebar_item_applications": "Applications",
+  "sidebar_item_calendar": "Calendar",
+  "sidebar_item_analytics": "Analytics",
+  "sidebar_item_dashboard": "Dashboard",
+
+  "header_back_to_dashboard_link_label": "Back to applications"
 }

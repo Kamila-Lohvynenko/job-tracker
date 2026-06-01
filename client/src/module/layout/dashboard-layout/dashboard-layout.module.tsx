@@ -1,6 +1,7 @@
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import type { FC, ReactNode } from "react";
 import { DashboardLayoutService } from "./dashboard-layout.service";
+import { HeaderComponent } from "./elements/header";
 import { SidebarComponent } from "./elements/sidebar";
 
 // interface
@@ -17,10 +18,21 @@ const DashboardLayoutModule: FC<Readonly<IDashboardLayoutModuleProps>> = async (
   // return
   return (
     <HydrationBoundary state={dehydrate(thisService.queryClient)}>
-      <div className="px-5 sm:px-8 py-6 sm:py-8">
-        <SidebarComponent variant="static" />
+      <div className="relative h-dvh w-full bg-surface">
+        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 w-full h-full">
+          <SidebarComponent
+            variant="static"
+            className="hidden md:flex gap-0!"
+          />
 
-        {children}
+          <div>
+            <HeaderComponent />
+
+            {children}
+          </div>
+        </div>
+
+        <SidebarComponent variant="drawer" />
       </div>
     </HydrationBoundary>
   );

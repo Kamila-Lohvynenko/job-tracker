@@ -1,12 +1,9 @@
 "use client";
 
-import { SelectThemeComponent } from "@/shared/components/select/theme";
-
 const DashboardModule = () => {
   return (
-    <div>
+    <div className="w-full">
       <h1>Dashboard</h1>
-      <SelectThemeComponent />
     </div>
   );
 };

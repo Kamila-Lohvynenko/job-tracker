@@ -66,5 +66,12 @@
   "verify_email_form_code_required": "Code ist erforderlich",
   "verify_email_form_code_min_length": "Code muss 6 Ziffern lang sein",
   "verify_email_form_error_invalid_code_title": "Ungültiger Code",
-  "verify_email_form_error_invalid_code_description": "Der Code, den du eingegeben hast, ist ungültig. Bitte versuche es erneut."
+  "verify_email_form_error_invalid_code_description": "Der Code, den du eingegeben hast, ist ungültig. Bitte versuche es erneut.",
+
+  "sidebar_item_applications": "Anwendungen",
+  "sidebar_item_calendar": "Kalender",
+  "sidebar_item_analytics": "Analysen",
+  "sidebar_item_dashboard": "Dashboard",
+
+  "header_back_to_dashboard_link_label": "Zurück zur Anwendungen"
 }
