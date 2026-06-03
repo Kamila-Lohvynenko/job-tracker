@@ -110,5 +110,6 @@ export const config = {
     "/signin",
     "/signup",
     "/verify-email",
+    "/applications/:path*",
   ],
 };

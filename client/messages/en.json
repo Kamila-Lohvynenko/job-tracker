@@ -73,5 +73,14 @@
   "sidebar_item_analytics": "Analytics",
   "sidebar_item_dashboard": "Dashboard",
 
-  "header_back_to_dashboard_link_label": "Back to applications"
+  "header_back_to_dashboard_link_label": "Back to applications",
+
+  "label_table_empty": "No results found",
+  "applications_table_aria_label": "Applications table",
+  "applications_table_column_company": "Company",
+  "applications_table_column_role": "Role",
+  "applications_table_column_status": "Status",
+  "applications_table_column_source": "Source",
+  "applications_table_column_applied_at": "Applied at",
+  "applications_table_pagination_summary": "{start} to {end} of {total} results"
 }

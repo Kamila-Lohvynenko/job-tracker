@@ -73,5 +73,14 @@
   "sidebar_item_analytics": "Analysen",
   "sidebar_item_dashboard": "Dashboard",
 
-  "header_back_to_dashboard_link_label": "Zurück zur Anwendungen"
+  "header_back_to_dashboard_link_label": "Zurück zur Anwendungen",
+
+  "label_table_empty": "Keine Ergebnisse gefunden",
+  "applications_table_aria_label": "Anwendungstabelle",
+  "applications_table_column_company": "Unternehmen",
+  "applications_table_column_role": "Rolle",
+  "applications_table_column_status": "Status",
+  "applications_table_column_source": "Quelle",
+  "applications_table_column_applied_at": "Beworben am",
+  "applications_table_pagination_summary": "{start} bis {end} von {total} Ergebnissen"
 }
