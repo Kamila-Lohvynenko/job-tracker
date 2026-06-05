@@ -1,4 +1,4 @@
-import { ApplicationsTableComponent } from "./applications-table";
+import { ApplicationsTableComponent } from "./element/applications-table";
 
 function ApplicationsModule() {
   return (

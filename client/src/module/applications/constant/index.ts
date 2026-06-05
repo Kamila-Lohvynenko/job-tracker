@@ -1,5 +1,4 @@
 export {
-  applicationStatusColorMap,
   applicationsResource,
   applicationsTableColumns,
   getApplicationsPaginationSummary,

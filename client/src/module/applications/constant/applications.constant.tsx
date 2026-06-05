@@ -4,10 +4,7 @@ import { ReactNode } from "react";
 import { IDataTableColumn } from "@/shared/components/data-table";
 import { StatusChipComponent } from "@/shared/components/status-chip";
 
-import {
-  EApplicationStatus,
-  IApplicationDto,
-} from "@/shared/rest-api/interface";
+import { IApplicationDto } from "@/shared/rest-api/interface";
 
 export type IApplicationsTableRow = {
   id: string;
@@ -26,23 +23,6 @@ const formatAppliedAt = (value: string) =>
     month: "short",
     year: "numeric",
   }).format(new Date(value));
-
-export const applicationStatusColorMap: Record<
-  EApplicationStatus,
-  "accent" | "default" | "danger" | "success" | "warning"
-> = {
-  [EApplicationStatus.WISHLIST]: "default",
-  [EApplicationStatus.APPLIED]: "accent",
-  [EApplicationStatus.HR_SCREEN]: "warning",
-  [EApplicationStatus.INTERVIEW]: "warning",
-  [EApplicationStatus.TECHNICAL]: "warning",
-  [EApplicationStatus.TAKE_HOME]: "warning",
-  [EApplicationStatus.FINAL]: "warning",
-  [EApplicationStatus.OFFER]: "success",
-  [EApplicationStatus.REJECTED]: "danger",
-  [EApplicationStatus.WITHDRAWN]: "default",
-  [EApplicationStatus.ARCHIVED]: "default",
-};
 
 export const applicationsTableColumns = (): IDataTableColumn[] => [
   {

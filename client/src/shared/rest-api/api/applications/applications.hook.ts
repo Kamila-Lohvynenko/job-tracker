@@ -42,7 +42,7 @@ export const useGetApplicationsQuery = () => {
 
   const params: IApplicationsRequest = {
     page: Number(searchParams.get("page")) || 1,
-    limit: Number(searchParams.get("limit")) || 10,
+    limit: Number(searchParams.get("limit")) || 20,
     order: (searchParams.get("order") as EPrismaOrder) || undefined,
     search: searchParams.get("search") || undefined,
     status: (searchParams.get("status") as EApplicationStatus) || undefined,
