@@ -39,6 +39,37 @@
   --danger: #ef4444;
   --danger-soft: #fef2f2;
 
+  /* Application Status */
+  --application-status-wishlist: #8b5cf6;
+  --application-status-wishlist-text: #5b21b6;
+
+  --application-status-applied: #3b82f6;
+  --application-status-applied-text: #1d4ed8;
+
+  --application-status-hr-screen: #f59e0b;
+  --application-status-hr-screen-text: #b45309;
+
+  --application-status-interview: #06b6d4;
+  --application-status-interview-text: #0f766e;
+
+  --application-status-technical: #6366f1;
+  --application-status-technical-text: #4338ca;
+
+  --application-status-take-home: #f97316;
+  --application-status-take-home-text: #c2410c;
+
+  --application-status-final: #14b8a6;
+  --application-status-final-text: #0f766e;
+
+  --application-status-offer: #22c55e;
+  --application-status-offer-text: #15803d;
+
+  --application-status-rejected: #6b7280;
+  --application-status-rejected-text: #4b5563;
+
+  --application-status-withdrawn: #9ca3af;
+  --application-status-withdrawn-text: #6b7280;
+
   /* Shadows / glow */
   --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
   --primary-glow: 0 0 28px rgba(93, 72, 220, 0.28);

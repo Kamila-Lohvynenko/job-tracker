@@ -1468,6 +1468,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gravity-ui/icons@npm:^2.18.0":
+  version: 2.18.0
+  resolution: "@gravity-ui/icons@npm:2.18.0"
+  dependencies:
+    tslib: "npm:^2.8.1"
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: 10c0/a29d9619a82346498fb535aa2299892499f6cee35bd2190633f1fa266ce345a85b7ab0e5f421ba13996b6dc391e915409adc4620fe67e7cbcbd9b9bb2438e638
+  languageName: node
+  linkType: hard
+
 "@heroui/react-rsc-utils@npm:2.1.9":
   version: 2.1.9
   resolution: "@heroui/react-rsc-utils@npm:2.1.9"
@@ -3909,6 +3923,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "client@workspace:."
   dependencies:
+    "@gravity-ui/icons": "npm:^2.18.0"
     "@heroui/react": "npm:^3.0.4"
     "@heroui/styles": "npm:^3.0.4"
     "@heroui/system": "npm:^2.4.28"

@@ -11,6 +11,7 @@
     "machine-translate": "inlang machine translate --project project.inlang"
   },
   "dependencies": {
+    "@gravity-ui/icons": "^2.18.0",
     "@heroui/react": "^3.0.4",
     "@heroui/styles": "^3.0.4",
     "@heroui/system": "^2.4.28",

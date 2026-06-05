@@ -1,8 +1,9 @@
 import * as m from "@/paraglide/messages";
-import { Chip } from "@heroui/react";
 import { ReactNode } from "react";
 
 import { IDataTableColumn } from "@/shared/components/data-table";
+import { StatusChipComponent } from "@/shared/components/status-chip";
+
 import {
   EApplicationStatus,
   IApplicationDto,
@@ -80,13 +81,9 @@ export const applicationsResource = (
     role: item.role,
 
     status: (
-      <Chip
-        color={applicationStatusColorMap[item.status]}
-        size="sm"
-        variant="soft"
-      >
+      <StatusChipComponent status={item.status} size="sm">
         {formatEnumLabel(item.status)}
-      </Chip>
+      </StatusChipComponent>
     ),
     source: item.source ? formatEnumLabel(item.source) : "—",
     location: item.location ?? "—",
