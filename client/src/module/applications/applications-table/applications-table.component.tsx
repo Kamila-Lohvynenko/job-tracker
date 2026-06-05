@@ -15,8 +15,6 @@ import { useApplicationsTableService } from "./applications-table.service";
 export function ApplicationsTableComponent() {
   const thisService = useApplicationsTableService();
 
-  console.log(thisService.applicationsData);
-
   if (thisService.error) {
     return (
       <Alert status="danger" className="bg-danger-soft text-danger rounded-sm">
@@ -34,7 +32,8 @@ export function ApplicationsTableComponent() {
       ariaLabel={m.applications_table_aria_label()}
       columns={applicationsTableColumns()}
       emptyMessage={m.label_table_empty()}
-      isLoading={thisService.isFetching}
+      isPending={thisService.isPending}
+      isFetching={thisService.isFetching}
       items={applicationsResource(thisService.applicationsData)}
       pagination={{
         limit: thisService.limit,

@@ -1,6 +1,11 @@
 "use client";
 
-import { queryOptions, useMutation, useQuery } from "@tanstack/react-query";
+import {
+  keepPreviousData,
+  queryOptions,
+  useMutation,
+  useQuery,
+} from "@tanstack/react-query";
 
 import { useQuerySearchParams } from "@/pkg/hook";
 
@@ -27,6 +32,7 @@ const applicationsQueryOptions = (params: IApplicationsRequest) => {
   return queryOptions({
     queryKey: [EApplicationsKey.APPLICATIONS_QUERY, params],
     queryFn: () => getApplicationsApi(params),
+    placeholderData: keepPreviousData,
   });
 };
 

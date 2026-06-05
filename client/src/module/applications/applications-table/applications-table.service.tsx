@@ -6,7 +6,7 @@ import { useGetApplicationsQuery } from "@/shared/rest-api/api/applications";
 export function useApplicationsTableService() {
   const { searchParams, changeQuery } = useQuerySearchParams();
 
-  const { data, isFetching, error } = useGetApplicationsQuery();
+  const { data, isFetching, isPending, error } = useGetApplicationsQuery();
 
   const page = data?.data.page ?? (Number(searchParams.get("page")) || 1);
   const limit = data?.data.limit ?? (Number(searchParams.get("limit")) || 10);
@@ -26,6 +26,7 @@ export function useApplicationsTableService() {
     applicationsData: data?.data.items ?? [],
     error,
     isFetching,
+    isPending,
     limit,
     page,
     setPage,

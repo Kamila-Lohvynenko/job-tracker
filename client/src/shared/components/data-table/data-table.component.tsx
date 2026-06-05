@@ -1,16 +1,14 @@
 "use client";
 
-import {
-  EmptyState,
-  Pagination,
-  Spinner,
-  Table,
-} from "@heroui/react";
+import { EmptyState, Pagination, Spinner, Table } from "@heroui/react";
 import { Inbox } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 
 import { cn } from "@/shared/utils/cn";
 
+import { getDataTableSkeletonItems } from "./data-table.skeleton";
+
+// interface
 export interface IDataTableColumn {
   id: string;
   label?: string;
@@ -30,7 +28,8 @@ interface IDataTableProps<T extends { id: string }> {
   ariaLabel: string;
   columns: IDataTableColumn[];
   items: T[];
-  isLoading?: boolean;
+  isPending?: boolean;
+  isFetching?: boolean;
   emptyMessage: string;
   pagination?: IDataTablePagination;
   renderCell?: (item: T, columnId: string) => ReactNode;
@@ -45,7 +44,8 @@ export function DataTableComponent<T extends { id: string }>(
     ariaLabel,
     columns,
     items,
-    isLoading = false,
+    isPending = false,
+    isFetching = false,
     emptyMessage,
     pagination,
     renderCell,
@@ -53,38 +53,39 @@ export function DataTableComponent<T extends { id: string }>(
     className,
   } = props;
 
+  const tableItems = useMemo(
+    (): T[] =>
+      isPending ? (getDataTableSkeletonItems(columns) as T[]) : items,
+    [columns, isPending, items],
+  );
+
   const pages = pagination
     ? Array.from({ length: pagination.totalPages }, (_, index) => index + 1)
     : [];
 
   return (
     <div className={cn("relative flex flex-col gap-4", className)}>
-      {isLoading && (
+      {isFetching && !isPending && (
         <div className="absolute inset-0 z-10 flex items-center justify-center rounded-large bg-background/60">
           <Spinner size="lg" />
         </div>
       )}
 
       <Table
-        className={cn(
-          isLoading && "pointer-events-none opacity-60",
-        )}
+        className={cn(isFetching && !isPending && "pointer-events-none opacity-60")}
       >
         <Table.ScrollContainer>
           <Table.Content aria-label={ariaLabel} className="min-w-[720px]">
             <Table.Header columns={columns}>
               {(column) => (
-                <Table.Column
-                  id={column.id}
-                  isRowHeader={column.isRowHeader}
-                >
+                <Table.Column id={column.id} isRowHeader={column.isRowHeader}>
                   {column.label}
                 </Table.Column>
               )}
             </Table.Header>
 
             <Table.Body
-              items={items}
+              items={tableItems}
               renderEmptyState={() => (
                 <EmptyState className="flex h-full w-full flex-col items-center justify-center gap-3 py-10 text-center">
                   <Inbox aria-hidden className="size-6 text-muted" />
@@ -95,10 +96,11 @@ export function DataTableComponent<T extends { id: string }>(
               {(item) => (
                 <Table.Row
                   className={cn(
-                    onRowClick &&
+                    !isPending &&
+                      onRowClick &&
                       "cursor-pointer transition-colors hover:bg-default-100",
                   )}
-                  onClick={() => onRowClick?.(item)}
+                  onClick={() => !isPending && onRowClick?.(item)}
                 >
                   <Table.Collection items={columns}>
                     {(column) => (
@@ -115,7 +117,7 @@ export function DataTableComponent<T extends { id: string }>(
           </Table.Content>
         </Table.ScrollContainer>
 
-        {pagination && pagination.totalPages > 0 && (
+        {!isPending && pagination && pagination.totalPages > 0 && (
           <Table.Footer>
             <Pagination size="sm">
               {pagination.summary && (
@@ -126,7 +128,9 @@ export function DataTableComponent<T extends { id: string }>(
                 <Pagination.Item>
                   <Pagination.Previous
                     isDisabled={
-                      isLoading || pagination.page <= 1 || pagination.totalPages <= 1
+                      isFetching ||
+                      pagination.page <= 1 ||
+                      pagination.totalPages <= 1
                     }
                     onPress={() =>
                       pagination.onPageChange(Math.max(1, pagination.page - 1))
@@ -140,7 +144,7 @@ export function DataTableComponent<T extends { id: string }>(
                   <Pagination.Item key={pageNumber}>
                     <Pagination.Link
                       isActive={pageNumber === pagination.page}
-                      isDisabled={isLoading || pagination.totalPages <= 1}
+                      isDisabled={isFetching || pagination.totalPages <= 1}
                       onPress={() => pagination.onPageChange(pageNumber)}
                     >
                       {pageNumber}
@@ -151,7 +155,7 @@ export function DataTableComponent<T extends { id: string }>(
                 <Pagination.Item>
                   <Pagination.Next
                     isDisabled={
-                      isLoading ||
+                      isFetching ||
                       pagination.page >= pagination.totalPages ||
                       pagination.totalPages <= 1
                     }
