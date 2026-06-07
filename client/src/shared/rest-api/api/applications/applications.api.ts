@@ -35,9 +35,12 @@ export const getApplicationApi = async (
 export const createApplicationApi = async (
   request: ICreateApplicationRequest,
 ): Promise<IApplicationResponse> => {
-  const response = await restApiFetcher.post(EApplicationsApi.API_APPLICATIONS, {
-    json: request,
-  });
+  const response = await restApiFetcher.post(
+    EApplicationsApi.API_APPLICATIONS,
+    {
+      json: request,
+    },
+  );
 
   return response.json();
 };

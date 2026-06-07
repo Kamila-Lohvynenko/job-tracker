@@ -1,6 +1,6 @@
 // application-query.dto.ts
 
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import {
   IsDateString,
   IsEnum,
@@ -32,8 +32,17 @@ export class ApplicationQueryDto {
   search?: string;
 
   @IsOptional()
-  @IsEnum(PrismaApplicationStatus)
-  status?: ApplicationStatus;
+  @Transform(({ value }) => {
+    if (value === undefined || value === null || value === '') {
+      return undefined;
+    }
+
+    const values = Array.isArray(value) ? value : String(value).split(',');
+
+    return values.map((item) => String(item).trim()).filter(Boolean);
+  })
+  @IsEnum(PrismaApplicationStatus, { each: true })
+  status?: ApplicationStatus[];
 
   @IsOptional()
   @IsEnum(PrismaApplicationSource)

@@ -72,7 +72,7 @@ export interface IApplicationDto {
 
 export interface IApplicationsRequest {
   search?: string;
-  status?: EApplicationStatus;
+  status?: EApplicationStatus | EApplicationStatus[];
   source?: EApplicationSource;
   employmentType?: EEmploymentType;
   appliedFrom?: string;

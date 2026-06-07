@@ -45,7 +45,9 @@ export const useGetApplicationsQuery = () => {
     limit: Number(searchParams.get("limit")) || 20,
     order: (searchParams.get("order") as EPrismaOrder) || undefined,
     search: searchParams.get("search") || undefined,
-    status: (searchParams.get("status") as EApplicationStatus) || undefined,
+    status: searchParams.get("status")
+      ? (searchParams.get("status")?.split(",") as EApplicationStatus[])
+      : undefined,
     source: (searchParams.get("source") as EApplicationSource) || undefined,
     employmentType:
       (searchParams.get("employmentType") as EEmploymentType) || undefined,

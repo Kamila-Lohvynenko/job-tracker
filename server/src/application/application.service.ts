@@ -26,7 +26,7 @@ export class ApplicationService {
 
     const where: Prisma.ApplicationWhereInput = {
       userId,
-      ...(query.status && { status: query.status }),
+      ...(query.status?.length && { status: { in: query.status } }),
       ...(query.source && { source: query.source }),
       ...(query.employmentType && { employmentType: query.employmentType }),
       ...(query.search && {

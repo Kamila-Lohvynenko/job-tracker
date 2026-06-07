@@ -11,7 +11,7 @@ export type IApplicationsTableRow = {
   [key: string]: ReactNode;
 };
 
-const formatEnumLabel = (value: string) =>
+export const formatEnumLabel = (value: string) =>
   value
     .replace(/_/g, " ")
     .toLowerCase()
@@ -61,7 +61,7 @@ export const applicationsResource = (
     role: item.role,
 
     status: (
-      <StatusChipComponent status={item.status} size="sm">
+      <StatusChipComponent status={item.status}>
         {formatEnumLabel(item.status)}
       </StatusChipComponent>
     ),

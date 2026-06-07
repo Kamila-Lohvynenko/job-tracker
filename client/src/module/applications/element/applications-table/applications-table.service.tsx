@@ -8,10 +8,10 @@ export function useApplicationsTableService() {
 
   const { data, isFetching, isPending, error } = useGetApplicationsQuery();
 
-  const page = data?.data.page ?? (Number(searchParams.get("page")) || 1);
-  const limit = data?.data.limit ?? (Number(searchParams.get("limit")) || 20);
-  const totalPages = data?.data.totalPages ?? 1;
-  const totalItems = data?.data.totalItems ?? 0;
+  const page = data?.data?.page ?? (Number(searchParams.get("page")) || 1);
+  const limit = data?.data?.limit ?? (Number(searchParams.get("limit")) || 20);
+  const totalPages = data?.data?.totalPages ?? 1;
+  const totalItems = data?.data?.totalItems ?? 0;
 
   const setPage = (newPage: number) => {
     changeQuery([
@@ -23,7 +23,7 @@ export function useApplicationsTableService() {
   };
 
   return {
-    applicationsData: data?.data.items ?? [],
+    applicationsData: data?.data?.items ?? [],
     error,
     isFetching,
     isPending,
