@@ -4,7 +4,14 @@ import { ReactNode } from "react";
 import { IDataTableColumn } from "@/shared/components/data-table";
 import { StatusChipComponent } from "@/shared/components/status-chip";
 
-import { IApplicationDto } from "@/shared/rest-api/interface";
+import { CompanyItemComponent } from "@/shared/components/item/company";
+import {
+  EApplicationSource,
+  EApplicationStatus,
+  EEmploymentType,
+  EWorkLocation,
+  IApplicationDto,
+} from "@/shared/rest-api/interface";
 
 export type IApplicationsTableRow = {
   id: string;
@@ -57,7 +64,7 @@ export const applicationsResource = (
 ): IApplicationsTableRow[] =>
   data.map((item) => ({
     id: item.id,
-    company: item.company,
+    company: <CompanyItemComponent company={item.company} showName={true} />,
     role: item.role,
 
     status: (
@@ -80,3 +87,46 @@ export const getApplicationsPaginationSummary = (
     end: String(Math.min(page * limit, totalItems)),
     total: String(totalItems),
   });
+
+export const statusLabelMap: Record<EApplicationStatus, () => string> = {
+  [EApplicationStatus.WISHLIST]: m.status_label_WISHLIST,
+  [EApplicationStatus.APPLIED]: m.status_label_APPLIED,
+  [EApplicationStatus.HR_SCREEN]: m.status_label_HR_SCREEN,
+  [EApplicationStatus.INTERVIEW]: m.status_label_INTERVIEW,
+  [EApplicationStatus.TECHNICAL]: m.status_label_TECHNICAL,
+  [EApplicationStatus.TAKE_HOME]: m.status_label_TAKE_HOME,
+  [EApplicationStatus.FINAL]: m.status_label_FINAL,
+  [EApplicationStatus.OFFER]: m.status_label_OFFER,
+  [EApplicationStatus.REJECTED]: m.status_label_REJECTED,
+  [EApplicationStatus.WITHDRAWN]: m.status_label_WITHDRAWN,
+  [EApplicationStatus.ARCHIVED]: m.status_label_ARCHIVED,
+};
+
+export const employmentTypeLabelMap: Record<EEmploymentType, () => string> = {
+  [EEmploymentType.FULL_TIME]: m.employment_type_label_FULL_TIME,
+  [EEmploymentType.PART_TIME]: m.employment_type_label_PART_TIME,
+  [EEmploymentType.CONTRACT]: m.employment_type_label_CONTRACT,
+  [EEmploymentType.INTERNSHIP]: m.employment_type_label_INTERNSHIP,
+  [EEmploymentType.FREELANCE]: m.employment_type_label_FREELANCE,
+  [EEmploymentType.TEMPORARY]: m.employment_type_label_TEMPORARY,
+};
+
+export const workLocationLabelMap: Record<EWorkLocation, () => string> = {
+  [EWorkLocation.REMOTE]: m.work_location_label_REMOTE,
+  [EWorkLocation.HYBRID]: m.work_location_label_HYBRID,
+  [EWorkLocation.ON_SITE]: m.work_location_label_ON_SITE,
+  [EWorkLocation.FLEXIBLE]: m.work_location_label_FLEXIBLE,
+  [EWorkLocation.OTHER]: m.work_location_label_OTHER,
+};
+
+export const sourceLabelMap: Record<EApplicationSource, () => string> = {
+  [EApplicationSource.LINKEDIN]: m.source_label_LINKEDIN,
+  [EApplicationSource.INDEED]: m.source_label_INDEED,
+  [EApplicationSource.COMPANY_WEBSITE]: m.source_label_COMPANY_WEBSITE,
+  [EApplicationSource.WELLFOUND]: m.source_label_WELLFOUND,
+  [EApplicationSource.GLASSDOOR]: m.source_label_GLASSDOOR,
+  [EApplicationSource.REFERRAL]: m.source_label_REFERRAL,
+  [EApplicationSource.RECRUITER]: m.source_label_RECRUITER,
+  [EApplicationSource.EMAIL]: m.source_label_EMAIL,
+  [EApplicationSource.OTHER]: m.source_label_OTHER,
+};

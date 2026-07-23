@@ -171,7 +171,8 @@ body {
 }
 
 @layer components {
-  .input {
+  .input,
+  .textarea {
     @apply rounded-md border border-border bg-surface px-4 py-3 text-sm shadow-sm transition-colors;
     &:hover,
     &[data-hovered="true"] {
@@ -186,15 +187,18 @@ body {
     }
   }
 
-  .input-otp {
+  .input-otp,
+  .textarea-otp {
     @apply gap-3;
   }
 
-  .input-otp__group {
+  .input-otp__group,
+  .textarea-otp__group {
     @apply gap-2;
   }
 
-  .input-otp__slot {
+  .input-otp__slot,
+  .textarea-otp__slot {
     @apply flex size-10 items-center justify-center rounded-md border border-border bg-surface text-sm font-semibold shadow-sm transition-colors outline-none sm:size-14;
 
     &:hover,

@@ -13,7 +13,7 @@ import NextLink from "next/link";
 const SigninModule = () => {
   // return
   return (
-    <div className="flex items-center justify-center min-h-screen w-full max-w-7xl gap-24">
+    <div className="flex items-center justify-center min-h-screen w-full gap-24">
       <div className="hidden lg:block">
         <h2 className="text-3xl font-bold mb-4">
           {m.signin_advantages_title()}

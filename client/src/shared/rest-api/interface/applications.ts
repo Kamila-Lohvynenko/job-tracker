@@ -47,6 +47,14 @@ export enum EEmploymentType {
   TEMPORARY = "TEMPORARY",
 }
 
+export enum EWorkLocation {
+  REMOTE = "REMOTE",
+  HYBRID = "HYBRID",
+  ON_SITE = "ON_SITE",
+  FLEXIBLE = "FLEXIBLE",
+  OTHER = "OTHER",
+}
+
 export enum EPrismaOrder {
   ASC = "asc",
   DESC = "desc",
@@ -61,6 +69,7 @@ export interface IApplicationDto {
   jobLink: string | null;
   location: string | null;
   employmentType: EEmploymentType | null;
+  workLocation: EWorkLocation | null;
   salaryMin: number | null;
   salaryMax: number | null;
   currency: string | null;
@@ -75,6 +84,7 @@ export interface IApplicationsRequest {
   status?: EApplicationStatus | EApplicationStatus[];
   source?: EApplicationSource;
   employmentType?: EEmploymentType;
+  workLocation?: EWorkLocation;
   appliedFrom?: string;
   appliedTo?: string;
   order?: EPrismaOrder;
@@ -110,6 +120,7 @@ export interface ICreateApplicationRequest {
   jobLink?: string;
   location?: string;
   employmentType?: EEmploymentType;
+  workLocation?: EWorkLocation;
   salaryMin?: number;
   salaryMax?: number;
   currency?: string;
