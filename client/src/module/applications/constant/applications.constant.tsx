@@ -118,15 +118,3 @@ export const workLocationLabelMap: Record<EWorkLocation, () => string> = {
   [EWorkLocation.FLEXIBLE]: m.work_location_label_FLEXIBLE,
   [EWorkLocation.OTHER]: m.work_location_label_OTHER,
 };
-
-export const sourceLabelMap: Record<EApplicationSource, () => string> = {
-  [EApplicationSource.LINKEDIN]: m.source_label_LINKEDIN,
-  [EApplicationSource.INDEED]: m.source_label_INDEED,
-  [EApplicationSource.COMPANY_WEBSITE]: m.source_label_COMPANY_WEBSITE,
-  [EApplicationSource.WELLFOUND]: m.source_label_WELLFOUND,
-  [EApplicationSource.GLASSDOOR]: m.source_label_GLASSDOOR,
-  [EApplicationSource.REFERRAL]: m.source_label_REFERRAL,
-  [EApplicationSource.RECRUITER]: m.source_label_RECRUITER,
-  [EApplicationSource.EMAIL]: m.source_label_EMAIL,
-  [EApplicationSource.OTHER]: m.source_label_OTHER,
-};

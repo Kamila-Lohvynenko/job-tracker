@@ -8,3 +8,9 @@ export { default as GoogleIcon } from "./icons/companies/google.svg";
 export { default as MicrosoftIcon } from "./icons/companies/microsoft.svg";
 export { default as NetflixIcon } from "./icons/companies/netflix.svg";
 export { default as SpotifyIcon } from "./icons/companies/spotify.svg";
+
+// sources
+export { default as GlassdoorIcon } from "./icons/sources/glassdoor.svg";
+export { default as IndeedIcon } from "./icons/sources/indeed.svg";
+export { default as LinkedInIcon } from "./icons/sources/linkedin.svg";
+export { default as DefaultSearchIcon } from "./icons/sources/website-search.svg";

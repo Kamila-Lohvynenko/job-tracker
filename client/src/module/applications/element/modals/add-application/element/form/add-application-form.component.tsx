@@ -1,11 +1,11 @@
 import {
   employmentTypeLabelMap,
-  sourceLabelMap,
   statusLabelMap,
   workLocationLabelMap,
 } from "@/module/applications/constant/applications.constant";
 import * as m from "@/paraglide/messages";
 import { CompanyItemComponent } from "@/shared/components/item/company";
+import { SourceItemComponent } from "@/shared/components/item/source";
 import {
   EApplicationSource,
   EApplicationStatus,
@@ -341,11 +341,13 @@ const AddApplicationFormComponent = () => {
               <Select.Popover>
                 <ListBox>
                   {Object.values(EApplicationSource).map((source) => {
-                    const label = sourceLabelMap[source]();
-
                     return (
-                      <ListBox.Item key={source} id={source} textValue={label}>
-                        {label}
+                      <ListBox.Item
+                        key={source}
+                        id={source}
+                        textValue={source.toString()}
+                      >
+                        <SourceItemComponent source={source} showName={true} />
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
                     );
