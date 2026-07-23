@@ -144,5 +144,7 @@
   "add_application_modal_notes_label": "Notes",
   "add_application_modal_notes_placeholder": "Add any notes about the application...",
   "add_application_modal_submit_button_label": "Save application",
-  "add_application_modal_cancel_button_label": "Cancel"
+  "add_application_modal_cancel_button_label": "Cancel",
+  "add_application_modal_toast_success": "Application added successfully",
+  "add_application_modal_toast_error": "Failed to add application"
 }

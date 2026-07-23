@@ -115,12 +115,12 @@ export interface IApplicationResponse extends IApiResponse {
 export interface ICreateApplicationRequest {
   company: string;
   role: string;
-  status?: EApplicationStatus;
-  source?: EApplicationSource;
+  status?: EApplicationStatus | null;
+  source?: EApplicationSource | null;
   jobLink?: string;
   location?: string;
-  employmentType?: EEmploymentType;
-  workLocation?: EWorkLocation;
+  employmentType?: EEmploymentType | null;
+  workLocation?: EWorkLocation | null;
   salaryMin?: number;
   salaryMax?: number;
   currency?: string;

@@ -53,7 +53,7 @@ const StatusChipComponent: FC<Readonly<IProps>> = (props) => {
           "px-2": variant === "bordered",
           "cursor-pointer hover:bg-divider hover:bg-opacity-25": isClickable,
           "pointer-events-none opacity-50": isDisabled,
-          "gap-2": variant === "light",
+          "gap-2 px-0": variant === "light",
         },
       )}
     >

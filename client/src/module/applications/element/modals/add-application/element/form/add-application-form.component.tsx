@@ -107,7 +107,7 @@ const AddApplicationFormComponent = () => {
                 {m.add_application_modal_status_label()}
               </Label>
 
-              <Select.Trigger className="py-3 border-border border rounded-md">
+              <Select.Trigger className="py-2 border-border border rounded-md">
                 <Select.Value />
                 <Select.Indicator />
               </Select.Trigger>
@@ -136,13 +136,13 @@ const AddApplicationFormComponent = () => {
 
         <Controller
           control={thisService.control}
-          name="applied_at"
+          name="appliedAt"
           render={({ field, fieldState }) => (
             <DatePicker
               isRequired
               isInvalid={fieldState.invalid}
               minValue={currentDate}
-              name="applied_at"
+              name="appliedAt"
               value={field.value}
               onChange={field.onChange}
             >
@@ -205,7 +205,7 @@ const AddApplicationFormComponent = () => {
       <div className="grid grid-cols-2 gap-4">
         <Controller
           control={thisService.control}
-          name="employment_type"
+          name="employmentType"
           render={({ field, fieldState }) => (
             <Select
               className="w-full"
@@ -249,7 +249,7 @@ const AddApplicationFormComponent = () => {
 
         <Controller
           control={thisService.control}
-          name="work_location"
+          name="workLocation"
           render={({ field, fieldState }) => (
             <Select
               className="w-full"

@@ -187,18 +187,15 @@ body {
     }
   }
 
-  .input-otp,
-  .textarea-otp {
+  .input-otp {
     @apply gap-3;
   }
 
-  .input-otp__group,
-  .textarea-otp__group {
+  .input-otp__group {
     @apply gap-2;
   }
 
-  .input-otp__slot,
-  .textarea-otp__slot {
+  .input-otp__slot {
     @apply flex size-10 items-center justify-center rounded-md border border-border bg-surface text-sm font-semibold shadow-sm transition-colors outline-none sm:size-14;
 
     &:hover,

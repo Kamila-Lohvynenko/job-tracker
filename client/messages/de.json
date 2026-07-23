@@ -144,5 +144,7 @@
   "add_application_modal_notes_label": "Notizen",
   "add_application_modal_notes_placeholder": "Notizen zur Anwendung hinzufügen...",
   "add_application_modal_submit_button_label": "Anwendung speichern",
-  "add_application_modal_cancel_button_label": "Abbrechen"
+  "add_application_modal_cancel_button_label": "Abbrechen",
+  "add_application_modal_toast_success": "Anwendung erfolgreich hinzugefügt",
+  "add_application_modal_toast_error": "Fehler beim Hinzufügen der Anwendung"
 }

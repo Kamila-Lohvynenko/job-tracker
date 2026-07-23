@@ -1,4 +1,10 @@
 import * as m from "@/paraglide/messages";
+import {
+  EApplicationSource,
+  EApplicationStatus,
+  EEmploymentType,
+  EWorkLocation,
+} from "@/shared/rest-api/interface";
 import type { DateValue } from "@internationalized/date";
 import { z } from "zod";
 
@@ -8,19 +14,19 @@ export const createAddApplicationSchema = () =>
 
     role: z.string().min(1, m.common_required()),
 
-    status: z.string().min(1, m.common_required()),
+    status: z.nativeEnum(EApplicationStatus),
 
-    applied_at: z.custom<DateValue>((value) => value != null, {
+    appliedAt: z.custom<DateValue>((value) => value != null, {
       message: m.common_required(),
     }),
 
-    source: z.string(),
+    source: z.nativeEnum(EApplicationSource).nullable(),
 
     link: z.string(),
 
-    employment_type: z.string(),
+    employmentType: z.nativeEnum(EEmploymentType).nullable(),
 
-    work_location: z.string(),
+    workLocation: z.nativeEnum(EWorkLocation).nullable(),
 
     address: z.string(),
 
