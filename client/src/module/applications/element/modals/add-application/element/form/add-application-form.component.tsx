@@ -1,11 +1,11 @@
 import {
   employmentTypeLabelMap,
-  statusLabelMap,
   workLocationLabelMap,
 } from "@/module/applications/constant/applications.constant";
 import * as m from "@/paraglide/messages";
 import { CompanyItemComponent } from "@/shared/components/item/company";
 import { SourceItemComponent } from "@/shared/components/item/source";
+import { StatusChipComponent } from "@/shared/components/status-chip";
 import {
   EApplicationSource,
   EApplicationStatus,
@@ -107,7 +107,7 @@ const AddApplicationFormComponent = () => {
                 {m.add_application_modal_status_label()}
               </Label>
 
-              <Select.Trigger className="py-3 border-gray-200 border rounded-md">
+              <Select.Trigger className="py-3 border-border border rounded-md">
                 <Select.Value />
                 <Select.Indicator />
               </Select.Trigger>
@@ -115,11 +115,13 @@ const AddApplicationFormComponent = () => {
               <Select.Popover>
                 <ListBox>
                   {Object.values(EApplicationStatus).map((status) => {
-                    const label = statusLabelMap[status]();
-
                     return (
-                      <ListBox.Item key={status} id={status} textValue={label}>
-                        {label}
+                      <ListBox.Item
+                        key={status}
+                        id={status}
+                        textValue={status.toString()}
+                      >
+                        <StatusChipComponent status={status} variant="light" />
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
                     );
@@ -150,7 +152,7 @@ const AddApplicationFormComponent = () => {
 
               <DateField.Group
                 fullWidth
-                className="py-[22px] border border-gray-200 rounded-md"
+                className="py-[22px] border border-border rounded-md"
               >
                 <DateField.Input>
                   {(segment) => <DateField.Segment segment={segment} />}
@@ -216,7 +218,7 @@ const AddApplicationFormComponent = () => {
                 {m.add_application_modal_employment_type_label()}
               </Label>
 
-              <Select.Trigger className="py-3 border-gray-200 border rounded-md">
+              <Select.Trigger className="py-3 border-border border rounded-md">
                 <Select.Value />
                 <Select.Indicator />
               </Select.Trigger>
@@ -260,7 +262,7 @@ const AddApplicationFormComponent = () => {
                 {m.add_application_modal_work_location_label()}
               </Label>
 
-              <Select.Trigger className="py-3 border-gray-200 border rounded-md">
+              <Select.Trigger className="py-3 border-border border rounded-md">
                 <Select.Value />
                 <Select.Indicator />
               </Select.Trigger>
@@ -333,7 +335,7 @@ const AddApplicationFormComponent = () => {
                 {m.add_application_modal_source_label()}
               </Label>
 
-              <Select.Trigger className="py-3 border-gray-200 border rounded-md">
+              <Select.Trigger className="py-3 border-border border rounded-md">
                 <Select.Value />
                 <Select.Indicator />
               </Select.Trigger>

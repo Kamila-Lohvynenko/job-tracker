@@ -1,16 +1,15 @@
-import { CSSProperties, FC, ReactNode } from "react";
+import { CSSProperties, FC } from "react";
 
 import { Chip, cn } from "@heroui/react";
 
 import { EApplicationStatus } from "@/shared/rest-api/interface";
 import { CircleFill } from "@gravity-ui/icons";
 import { XIcon } from "lucide-react";
-import { useStatusChipService } from "./status-chip.service";
+import { statusLabelMap, useStatusChipService } from "./status-chip.service";
 
 // interface
 interface IProps {
-  children?: ReactNode;
-  variant?: "bordered" | "primary";
+  variant?: "bordered" | "primary" | "light";
   status: EApplicationStatus;
   radius?: "sm" | "md" | "lg";
   isClickable?: boolean;
@@ -29,7 +28,6 @@ const StatusChipComponent: FC<Readonly<IProps>> = (props) => {
     status,
     isClickable,
     isBg = true,
-    children,
     size = "lg",
     className = "",
     variant = "primary",
@@ -55,12 +53,19 @@ const StatusChipComponent: FC<Readonly<IProps>> = (props) => {
           "px-2": variant === "bordered",
           "cursor-pointer hover:bg-divider hover:bg-opacity-25": isClickable,
           "pointer-events-none opacity-50": isDisabled,
+          "gap-2": variant === "light",
         },
       )}
     >
-      <CircleFill width={6} />
+      <span
+        style={{
+          color: thisService.getStatusTextColor(),
+        }}
+      >
+        <CircleFill width={6} />
+      </span>
 
-      {children}
+      {statusLabelMap[status]()}
 
       {isCloseable && (
         <button

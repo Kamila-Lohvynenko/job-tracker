@@ -5,9 +5,8 @@ import { IDataTableColumn } from "@/shared/components/data-table";
 import { StatusChipComponent } from "@/shared/components/status-chip";
 
 import { CompanyItemComponent } from "@/shared/components/item/company";
+import { SourceItemComponent } from "@/shared/components/item/source";
 import {
-  EApplicationSource,
-  EApplicationStatus,
   EEmploymentType,
   EWorkLocation,
   IApplicationDto,
@@ -17,12 +16,6 @@ export type IApplicationsTableRow = {
   id: string;
   [key: string]: ReactNode;
 };
-
-export const formatEnumLabel = (value: string) =>
-  value
-    .replace(/_/g, " ")
-    .toLowerCase()
-    .replace(/\b\w/g, (character) => character.toUpperCase());
 
 const formatAppliedAt = (value: string) =>
   new Intl.DateTimeFormat(undefined, {
@@ -67,12 +60,12 @@ export const applicationsResource = (
     company: <CompanyItemComponent company={item.company} showName={true} />,
     role: item.role,
 
-    status: (
-      <StatusChipComponent status={item.status}>
-        {formatEnumLabel(item.status)}
-      </StatusChipComponent>
+    status: <StatusChipComponent status={item.status} />,
+    source: item.source ? (
+      <SourceItemComponent source={item.source} showName={true} />
+    ) : (
+      "—"
     ),
-    source: item.source ? formatEnumLabel(item.source) : "—",
     location: item.location ?? "—",
     appliedAt: formatAppliedAt(item.appliedAt),
   }));
@@ -87,20 +80,6 @@ export const getApplicationsPaginationSummary = (
     end: String(Math.min(page * limit, totalItems)),
     total: String(totalItems),
   });
-
-export const statusLabelMap: Record<EApplicationStatus, () => string> = {
-  [EApplicationStatus.WISHLIST]: m.status_label_WISHLIST,
-  [EApplicationStatus.APPLIED]: m.status_label_APPLIED,
-  [EApplicationStatus.HR_SCREEN]: m.status_label_HR_SCREEN,
-  [EApplicationStatus.INTERVIEW]: m.status_label_INTERVIEW,
-  [EApplicationStatus.TECHNICAL]: m.status_label_TECHNICAL,
-  [EApplicationStatus.TAKE_HOME]: m.status_label_TAKE_HOME,
-  [EApplicationStatus.FINAL]: m.status_label_FINAL,
-  [EApplicationStatus.OFFER]: m.status_label_OFFER,
-  [EApplicationStatus.REJECTED]: m.status_label_REJECTED,
-  [EApplicationStatus.WITHDRAWN]: m.status_label_WITHDRAWN,
-  [EApplicationStatus.ARCHIVED]: m.status_label_ARCHIVED,
-};
 
 export const employmentTypeLabelMap: Record<EEmploymentType, () => string> = {
   [EEmploymentType.FULL_TIME]: m.employment_type_label_FULL_TIME,

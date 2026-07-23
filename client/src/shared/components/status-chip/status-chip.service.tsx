@@ -1,14 +1,29 @@
 import { CSSProperties } from "react";
 
+import * as m from "@/paraglide/messages";
 import { EApplicationStatus } from "@/shared/rest-api/interface";
 
 const STATUS_BG_OPACITY = 12;
 const STATUS_CLOSE_HOVER_BG_OPACITY = 24;
 
+export const statusLabelMap: Record<EApplicationStatus, () => string> = {
+  [EApplicationStatus.WISHLIST]: m.status_label_WISHLIST,
+  [EApplicationStatus.APPLIED]: m.status_label_APPLIED,
+  [EApplicationStatus.HR_SCREEN]: m.status_label_HR_SCREEN,
+  [EApplicationStatus.INTERVIEW]: m.status_label_INTERVIEW,
+  [EApplicationStatus.TECHNICAL]: m.status_label_TECHNICAL,
+  [EApplicationStatus.TAKE_HOME]: m.status_label_TAKE_HOME,
+  [EApplicationStatus.FINAL]: m.status_label_FINAL,
+  [EApplicationStatus.OFFER]: m.status_label_OFFER,
+  [EApplicationStatus.REJECTED]: m.status_label_REJECTED,
+  [EApplicationStatus.WITHDRAWN]: m.status_label_WITHDRAWN,
+  [EApplicationStatus.ARCHIVED]: m.status_label_ARCHIVED,
+};
+
 // interface
 interface IProps {
   status: EApplicationStatus;
-  variant: "bordered" | "primary" | "secondary" | "tertiary" | "soft";
+  variant: "bordered" | "primary" | "light";
 }
 
 // service
@@ -87,6 +102,7 @@ export function useStatusChipService(props: IProps) {
   const getStatusVariant = () => {
     switch (variant) {
       case "bordered":
+      case "light":
         return "tertiary";
       default:
         return variant;
@@ -104,6 +120,14 @@ export function useStatusChipService(props: IProps) {
         color: textColor,
         backgroundColor,
         border: `1px solid ${textColor}`,
+      };
+    }
+
+    if (variant === "light") {
+      return {
+        color: "var(--foreground)",
+        backgroundColor: "transparent",
+        border: "none",
       };
     }
 

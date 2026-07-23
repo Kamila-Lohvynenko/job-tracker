@@ -2,7 +2,6 @@
 
 import { StatusChipComponent } from "@/shared/components/status-chip";
 import { EApplicationStatus } from "@/shared/rest-api/interface";
-import { formatEnumLabel } from "../../constant/applications.constant";
 import { useApplicationsFilterService } from "./applications-filter.service";
 
 const FilterComponent = () => {
@@ -24,9 +23,7 @@ const FilterComponent = () => {
               onClick={() => thisService.handleStatusChangeImmediate(status)}
               onClose={() => thisService.handleStatusChangeImmediate(status)}
               isCloseable={isActive}
-            >
-              {formatEnumLabel(status)}
-            </StatusChipComponent>
+            />
           );
         })}
       </div>
