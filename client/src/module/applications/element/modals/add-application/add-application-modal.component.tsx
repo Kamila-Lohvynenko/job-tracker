@@ -15,7 +15,7 @@ const AddApplicationModalComponent = () => {
       onOpenChange={thisService.closeModal}
     >
       <Modal.Container>
-        <Modal.Dialog className="sm:max-w-[560px]">
+        <Modal.Dialog className="sm:max-w-140 overflow-scroll">
           <Modal.Header className="flex items-center gap-3">
             <Modal.Icon className="bg-primary-soft text-primary size-11">
               <FilePlusCorner className="size-5" />

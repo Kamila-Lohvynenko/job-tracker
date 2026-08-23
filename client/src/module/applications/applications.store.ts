@@ -4,6 +4,7 @@ import { devtools } from "zustand/middleware";
 // interface
 interface IState {
   modalType: "add" | "remove" | null;
+  applicationIdToDelete: string | null;
 }
 
 interface IStore extends IState {
@@ -16,6 +17,7 @@ export const useApplicationsStore = create<IStore>()(
     (set) => ({
       // Initial state values
       modalType: null,
+      applicationIdToDelete: null,
 
       // State update function
       handleApplicationsStore: (value: Partial<IState>) =>

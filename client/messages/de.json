@@ -118,6 +118,7 @@
   "applications_table_column_status": "Status",
   "applications_table_column_source": "Quelle",
   "applications_table_column_applied_at": "Beworben am",
+  "applications_table_column_action": "Aktionen",
   "applications_table_pagination_summary": "{start} bis {end} von {total} Ergebnissen",
 
   "add_application_modal_title": "Anwendung hinzufügen",
@@ -146,5 +147,12 @@
   "add_application_modal_submit_button_label": "Anwendung speichern",
   "add_application_modal_cancel_button_label": "Abbrechen",
   "add_application_modal_toast_success": "Anwendung erfolgreich hinzugefügt",
-  "add_application_modal_toast_error": "Fehler beim Hinzufügen der Anwendung"
+  "add_application_modal_toast_error": "Fehler beim Hinzufügen der Anwendung",
+
+  "remove_application_modal_title": "Anwendung löschen",
+  "remove_application_modal_description": "Möchten Sie diese Anwendung wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+  "remove_application_modal_confirm_button_label": "Löschen",
+  "remove_application_modal_cancel_button_label": "Abbrechen",
+  "remove_application_modal_toast_success": "Anwendung erfolgreich gelöscht",
+  "remove_application_modal_toast_error": "Fehler beim Löschen der Anwendung"
 }

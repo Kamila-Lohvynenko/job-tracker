@@ -64,7 +64,12 @@ export function DataTableComponent<T extends { id: string }>(
     : [];
 
   return (
-    <div className={cn("relative flex flex-col gap-4", className)}>
+    <div
+      className={cn(
+        "relative flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto",
+        className,
+      )}
+    >
       {isFetching && !isPending && (
         <div className="absolute inset-0 z-10 flex items-center justify-center rounded-large bg-background/60">
           <Spinner size="lg" />
@@ -72,10 +77,12 @@ export function DataTableComponent<T extends { id: string }>(
       )}
 
       <Table
-        className={cn(isFetching && !isPending && "pointer-events-none opacity-60")}
+        className={cn(
+          isFetching && !isPending && "pointer-events-none opacity-60",
+        )}
       >
         <Table.ScrollContainer>
-          <Table.Content aria-label={ariaLabel} className="min-w-[720px]">
+          <Table.Content aria-label={ariaLabel} className="min-w-180">
             <Table.Header columns={columns}>
               {(column) => (
                 <Table.Column id={column.id} isRowHeader={column.isRowHeader}>

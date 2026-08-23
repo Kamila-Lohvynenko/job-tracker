@@ -72,7 +72,7 @@ export const SidebarComponent: FC<ISidebarComponentProps> = (props) => {
   };
 
   return (
-    <div className={cn("flex gap-4 h-full", className)}>
+    <div className={cn("flex gap-4 h-screen", className)}>
       <LazyMotion features={domAnimation}>
         {variant === "static" ? (
           <>{sideBarContent()}</>

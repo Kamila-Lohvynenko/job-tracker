@@ -1,10 +1,14 @@
 "use client";
 
+import { useApplicationsStore } from "@/module/applications/applications.store";
 import { useQuerySearchParams } from "@/pkg/hook";
 import { useGetApplicationsQuery } from "@/shared/rest-api/api/applications";
 
 export function useApplicationsTableService() {
   const { searchParams, changeQuery } = useQuerySearchParams();
+  const handleApplicationsStore = useApplicationsStore(
+    (state) => state.handleApplicationsStore,
+  );
 
   const { data, isFetching, isPending, error } = useGetApplicationsQuery();
 
@@ -22,12 +26,17 @@ export function useApplicationsTableService() {
     ]);
   };
 
+  const onDeleteApplication = (id: string) => {
+    handleApplicationsStore({ modalType: "remove", applicationIdToDelete: id });
+  };
+
   return {
     applicationsData: data?.data?.items ?? [],
     error,
     isFetching,
     isPending,
     limit,
+    onDeleteApplication,
     page,
     setPage,
     totalItems,

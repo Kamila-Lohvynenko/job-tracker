@@ -32,7 +32,7 @@ const DashboardLayoutModule: FC<Readonly<IDashboardLayoutModuleProps>> = async (
           </div>
         </div>
 
-        <SidebarComponent variant="drawer" />
+        <SidebarComponent variant="drawer" className="md:hidden" />
       </div>
     </HydrationBoundary>
   );

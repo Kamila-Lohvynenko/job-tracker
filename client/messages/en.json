@@ -118,6 +118,7 @@
   "applications_table_column_status": "Status",
   "applications_table_column_source": "Source",
   "applications_table_column_applied_at": "Applied at",
+  "applications_table_column_action": "Actions",
   "applications_table_pagination_summary": "{start} to {end} of {total} results",
 
   "add_application_modal_title": "Add application",
@@ -146,5 +147,12 @@
   "add_application_modal_submit_button_label": "Save application",
   "add_application_modal_cancel_button_label": "Cancel",
   "add_application_modal_toast_success": "Application added successfully",
-  "add_application_modal_toast_error": "Failed to add application"
+  "add_application_modal_toast_error": "Failed to add application",
+
+  "remove_application_modal_title": "Delete application",
+  "remove_application_modal_description": "Are you sure you want to delete this application? This action cannot be undone.",
+  "remove_application_modal_confirm_button_label": "Delete",
+  "remove_application_modal_cancel_button_label": "Cancel",
+  "remove_application_modal_toast_success": "Application deleted successfully",
+  "remove_application_modal_toast_error": "Failed to delete application"
 }

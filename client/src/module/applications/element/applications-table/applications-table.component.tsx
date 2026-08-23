@@ -34,7 +34,10 @@ export function ApplicationsTableComponent() {
       emptyMessage={m.label_table_empty()}
       isPending={thisService.isPending}
       isFetching={thisService.isFetching}
-      items={applicationsResource(thisService.applicationsData)}
+      items={applicationsResource(
+        thisService.applicationsData,
+        thisService.onDeleteApplication,
+      )}
       pagination={{
         limit: thisService.limit,
         onPageChange: thisService.setPage,

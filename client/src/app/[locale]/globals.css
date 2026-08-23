@@ -170,6 +170,40 @@ body {
   color: var(--foreground);
 }
 
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: color-mix(in srgb, var(--primary-light) 45%, transparent)
+    transparent !important;
+}
+
+*::-webkit-scrollbar {
+  width: 4px !important;
+  height: 4px !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: color-mix(
+    in srgb,
+    var(--primary) 45%,
+    transparent
+  ) !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  margin-block: 24px !important;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--primary) 70%,
+    transparent
+  ) !important;
+}
+
 @layer components {
   .input,
   .textarea {

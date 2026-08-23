@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import { IDataTableColumn } from "@/shared/components/data-table";
 import { StatusChipComponent } from "@/shared/components/status-chip";
 
+import { ActionComponent } from "@/shared/components/action";
 import { CompanyItemComponent } from "@/shared/components/item/company";
 import { SourceItemComponent } from "@/shared/components/item/source";
 import {
@@ -50,10 +51,15 @@ export const applicationsTableColumns = (): IDataTableColumn[] => [
     id: "appliedAt",
     label: m.applications_table_column_applied_at(),
   },
+  {
+    id: "action",
+    label: m.applications_table_column_action(),
+  },
 ];
 
 export const applicationsResource = (
   data: IApplicationDto[],
+  onDelete: (id: string) => void,
 ): IApplicationsTableRow[] =>
   data.map((item) => ({
     id: item.id,
@@ -68,6 +74,12 @@ export const applicationsResource = (
     ),
     location: item.location ?? "—",
     appliedAt: formatAppliedAt(item.appliedAt),
+    action: (
+      <ActionComponent
+        hrefView={`/applications/${item.id}`}
+        onDelete={() => onDelete(item.id)}
+      />
+    ),
   }));
 
 export const getApplicationsPaginationSummary = (
