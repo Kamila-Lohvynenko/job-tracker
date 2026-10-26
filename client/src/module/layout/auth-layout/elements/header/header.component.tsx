@@ -6,7 +6,7 @@ import { SelectThemeComponent } from "@/shared/components/select/theme";
 export const HeaderComponent = () => {
   return (
     <div className="flex items-center justify-between">
-      <LogoComponent />
+      <LogoComponent isCollapsed={false} />
 
       <div className="flex items-center gap-2">
         <SelectLanguageComponent />
