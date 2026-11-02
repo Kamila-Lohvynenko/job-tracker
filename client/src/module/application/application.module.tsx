@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import { useApplicationService } from "./application.service";
-import { APPLICATION_TABS } from "./constant";
 import { ApplicationHeaderComponent } from "./element/header";
 import { ApplicationTabsComponent } from "./element/tabs";
 import { ApplicationTopComponent } from "./element/top";

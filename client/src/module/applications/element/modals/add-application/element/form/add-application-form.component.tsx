@@ -2,10 +2,7 @@ import * as m from "@/paraglide/messages";
 import { CompanyItemComponent } from "@/shared/components/item/company";
 import { SourceItemComponent } from "@/shared/components/item/source";
 import { StatusChipComponent } from "@/shared/components/status-chip";
-import {
-  employmentTypeLabelMap,
-  locationLabelMap,
-} from "@/shared/constant";
+import { employmentTypeLabelMap, locationLabelMap } from "@/shared/constant";
 import {
   EApplicationSource,
   EApplicationStatus,
@@ -374,6 +371,50 @@ const AddApplicationFormComponent = () => {
               <Input
                 {...field}
                 placeholder={m.add_application_modal_link_placeholder()}
+                autoComplete="off"
+              />
+
+              <FieldError>{fieldState.error?.message}</FieldError>
+            </TextField>
+          )}
+        />
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <Controller
+          control={thisService.control}
+          name="salaryMin"
+          render={({ field, fieldState }) => (
+            <TextField isInvalid={fieldState.invalid}>
+              <Label className="text-sm font-medium">
+                {m.add_application_modal_salary_min_label()}
+              </Label>
+
+              <Input
+                {...field}
+                type="number"
+                placeholder={m.add_application_modal_salary_min_placeholder()}
+                autoComplete="off"
+              />
+
+              <FieldError>{fieldState.error?.message}</FieldError>
+            </TextField>
+          )}
+        />
+
+        <Controller
+          control={thisService.control}
+          name="salaryMax"
+          render={({ field, fieldState }) => (
+            <TextField isInvalid={fieldState.invalid}>
+              <Label className="text-sm font-medium">
+                {m.add_application_modal_salary_max_label()}
+              </Label>
+
+              <Input
+                {...field}
+                type="number"
+                placeholder={m.add_application_modal_salary_max_placeholder()}
                 autoComplete="off"
               />
 

@@ -38,6 +38,18 @@ const ApplicationOverviewTabComponent = () => {
               : "-"}
           </p>
         </div>
+
+        <div className="flex flex-col gap-2">
+          <p className="text-foreground-subtle">Job Link</p>
+          <p>{application?.jobLink}</p>
+        </div>
+
+        {application?.notes && (
+          <div className="flex flex-col gap-2">
+            <p className="text-foreground-subtle">Notes</p>
+            <p>{application?.notes}</p>
+          </div>
+        )}
       </div>
     </Tabs.Panel>
   );

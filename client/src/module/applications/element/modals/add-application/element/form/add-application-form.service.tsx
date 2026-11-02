@@ -19,6 +19,12 @@ import {
 
 export const ADD_APPLICATION_FORM_ID = "add-application-form";
 
+const toSalary = (value: string) => {
+  const trimmed = value.trim();
+
+  return trimmed ? Number(trimmed) : undefined;
+};
+
 const formDefaultValues: AddApplicationSchema = {
   company: "",
   role: "",
@@ -29,7 +35,8 @@ const formDefaultValues: AddApplicationSchema = {
   employmentType: null,
   location: null,
   address: "",
-  salary: "",
+  salaryMin: "",
+  salaryMax: "",
   currency: "",
   notes: "",
 };
@@ -63,6 +70,8 @@ export function useAddApplicationFormService() {
         address: data.address || undefined,
         location: data.location,
         employmentType: data.employmentType,
+        salaryMin: toSalary(data.salaryMin),
+        salaryMax: toSalary(data.salaryMax),
         currency: data.currency || undefined,
         notes: data.notes || undefined,
         appliedAt: data.appliedAt.toDate(getLocalTimeZone()).toISOString(),

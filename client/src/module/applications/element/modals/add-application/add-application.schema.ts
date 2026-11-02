@@ -30,11 +30,34 @@ export const createAddApplicationSchema = () =>
 
     address: z.string(),
 
-    salary: z.string(),
+    salaryMin: z
+      .string()
+      .refine((value) => value.trim() === "" || /^\d+$/.test(value.trim()), {
+        message: m.add_application_modal_salary_invalid(),
+      }),
+
+    salaryMax: z
+      .string()
+      .refine((value) => value.trim() === "" || /^\d+$/.test(value.trim()), {
+        message: m.add_application_modal_salary_invalid(),
+      }),
 
     currency: z.string(),
 
     notes: z.string(),
+  })
+  .superRefine((data, ctx) => {
+    if (!data.salaryMin.trim() || !data.salaryMax.trim()) {
+      return;
+    }
+
+    if (Number(data.salaryMin) > Number(data.salaryMax)) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["salaryMax"],
+        message: m.add_application_modal_salary_range(),
+      });
+    }
   });
 
 export type AddApplicationSchema = z.infer<
