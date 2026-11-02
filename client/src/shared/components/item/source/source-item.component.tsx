@@ -1,5 +1,6 @@
 import { EApplicationSource } from "@/shared/rest-api/interface/applications";
-import { sourceLabelMap, useSourceItemService } from "./source-item.service";
+import { useSourceItemService } from "./source-item.service";
+import { sourceLabelMap } from "@/shared/constant";
 
 // interface
 interface SourceItemComponentProps {

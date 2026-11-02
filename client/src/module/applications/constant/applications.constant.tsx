@@ -7,11 +7,7 @@ import { StatusChipComponent } from "@/shared/components/status-chip";
 import { ActionComponent } from "@/shared/components/action";
 import { CompanyItemComponent } from "@/shared/components/item/company";
 import { SourceItemComponent } from "@/shared/components/item/source";
-import {
-  EEmploymentType,
-  EWorkLocation,
-  IApplicationDto,
-} from "@/shared/rest-api/interface";
+import { IApplicationDto } from "@/shared/rest-api/interface";
 
 export type IApplicationsTableRow = {
   id: string;
@@ -92,20 +88,3 @@ export const getApplicationsPaginationSummary = (
     end: String(Math.min(page * limit, totalItems)),
     total: String(totalItems),
   });
-
-export const employmentTypeLabelMap: Record<EEmploymentType, () => string> = {
-  [EEmploymentType.FULL_TIME]: m.employment_type_label_FULL_TIME,
-  [EEmploymentType.PART_TIME]: m.employment_type_label_PART_TIME,
-  [EEmploymentType.CONTRACT]: m.employment_type_label_CONTRACT,
-  [EEmploymentType.INTERNSHIP]: m.employment_type_label_INTERNSHIP,
-  [EEmploymentType.FREELANCE]: m.employment_type_label_FREELANCE,
-  [EEmploymentType.TEMPORARY]: m.employment_type_label_TEMPORARY,
-};
-
-export const workLocationLabelMap: Record<EWorkLocation, () => string> = {
-  [EWorkLocation.REMOTE]: m.work_location_label_REMOTE,
-  [EWorkLocation.HYBRID]: m.work_location_label_HYBRID,
-  [EWorkLocation.ON_SITE]: m.work_location_label_ON_SITE,
-  [EWorkLocation.FLEXIBLE]: m.work_location_label_FLEXIBLE,
-  [EWorkLocation.OTHER]: m.work_location_label_OTHER,
-};

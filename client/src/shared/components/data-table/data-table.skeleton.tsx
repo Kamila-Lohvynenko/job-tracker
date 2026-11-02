@@ -19,7 +19,12 @@ export const getDataTableSkeletonItems = (
 
     for (const column of columns) {
       row[column.id] = (
-        <Skeleton className={cn("h-4 rounded-lg", column.isRowHeader ? "w-36" : "w-full")} />
+        <Skeleton
+          className={cn(
+            "h-7 rounded-lg",
+            column.isRowHeader ? "w-12" : "w-full",
+          )}
+        />
       );
     }
 

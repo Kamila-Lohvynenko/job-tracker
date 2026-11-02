@@ -1,11 +1,11 @@
-import {
-  employmentTypeLabelMap,
-  workLocationLabelMap,
-} from "@/module/applications/constant/applications.constant";
 import * as m from "@/paraglide/messages";
 import { CompanyItemComponent } from "@/shared/components/item/company";
 import { SourceItemComponent } from "@/shared/components/item/source";
 import { StatusChipComponent } from "@/shared/components/status-chip";
+import {
+  employmentTypeLabelMap,
+  workLocationLabelMap,
+} from "@/shared/constant";
 import {
   EApplicationSource,
   EApplicationStatus,

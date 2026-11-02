@@ -1,13 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { useApplicationService } from "./application.service";
+import { APPLICATION_TABS } from "./constant";
 import { ApplicationHeaderComponent } from "./element/header";
+import { ApplicationTabsComponent } from "./element/tabs";
 import { ApplicationTopComponent } from "./element/top";
 
 // module
 function ApplicationModule() {
-  const { applicationId, application, isFetched, isFetching, handleRefresh } =
-    useApplicationService();
+  const { applicationId } = useApplicationService();
 
   // return
   return (
@@ -16,11 +18,7 @@ function ApplicationModule() {
 
       <ApplicationTopComponent applicationId={applicationId} />
 
-      <div>Application id: {applicationId}</div>
-      <div>Application: {application?.company}</div>
-      <div>Is fetched: {isFetched ? "Yes" : "No"}</div>
-      <div>Is fetching: {isFetching ? "Yes" : "No"}</div>
-      <button onClick={handleRefresh}>Refresh</button>
+      <ApplicationTabsComponent />
     </div>
   );
 }
