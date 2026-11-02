@@ -14,11 +14,13 @@ import type {
   ApplicationSource,
   ApplicationStatus,
   EmploymentType,
+  Location,
 } from '../../../generated/prisma/enums.js';
 import {
   ApplicationSource as PrismaApplicationSource,
   ApplicationStatus as PrismaApplicationStatus,
   EmploymentType as PrismaEmploymentType,
+  Location as PrismaLocation,
 } from '../../../generated/prisma/enums.js';
 
 export enum PrismaOrder {
@@ -51,6 +53,10 @@ export class ApplicationQueryDto {
   @IsOptional()
   @IsEnum(PrismaEmploymentType)
   employmentType?: EmploymentType;
+
+  @IsOptional()
+  @IsEnum(PrismaLocation)
+  location?: Location;
 
   @IsOptional()
   @IsDateString()

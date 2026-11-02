@@ -2,6 +2,7 @@ import type {
   ApplicationSource,
   ApplicationStatus,
   EmploymentType,
+  Location,
 } from '../../../generated/prisma/enums.js';
 
 export class ApplicationResponseDto {
@@ -11,7 +12,8 @@ export class ApplicationResponseDto {
   status: ApplicationStatus;
   source: ApplicationSource | null;
   jobLink: string | null;
-  location: string | null;
+  address: string | null;
+  location: Location | null;
   employmentType: EmploymentType | null;
   salaryMin: number | null;
   salaryMax: number | null;

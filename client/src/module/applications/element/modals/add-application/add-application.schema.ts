@@ -3,7 +3,7 @@ import {
   EApplicationSource,
   EApplicationStatus,
   EEmploymentType,
-  EWorkLocation,
+  ELocation,
 } from "@/shared/rest-api/interface";
 import type { DateValue } from "@internationalized/date";
 import { z } from "zod";
@@ -26,7 +26,7 @@ export const createAddApplicationSchema = () =>
 
     employmentType: z.nativeEnum(EEmploymentType).nullable(),
 
-    workLocation: z.nativeEnum(EWorkLocation).nullable(),
+    location: z.nativeEnum(ELocation).nullable(),
 
     address: z.string(),
 

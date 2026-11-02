@@ -40,10 +40,6 @@ export const applicationsTableColumns = (): IDataTableColumn[] => [
     label: m.applications_table_column_source(),
   },
   {
-    id: "location",
-    label: "Location",
-  },
-  {
     id: "appliedAt",
     label: m.applications_table_column_applied_at(),
   },
@@ -68,7 +64,6 @@ export const applicationsResource = (
     ) : (
       "—"
     ),
-    location: item.location ?? "—",
     appliedAt: formatAppliedAt(item.appliedAt),
     action: (
       <ActionComponent

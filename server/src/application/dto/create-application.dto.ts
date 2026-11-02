@@ -12,6 +12,7 @@ import {
   ApplicationSource,
   ApplicationStatus,
   EmploymentType,
+  Location,
 } from '../../../generated/prisma/enums.js';
 
 export class CreateApplicationDto {
@@ -35,7 +36,11 @@ export class CreateApplicationDto {
 
   @IsOptional()
   @IsString()
-  location?: string;
+  address?: string;
+
+  @IsOptional()
+  @IsEnum(Location)
+  location?: Location;
 
   @IsOptional()
   @IsEnum(EmploymentType)

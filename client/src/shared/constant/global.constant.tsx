@@ -2,7 +2,7 @@ import * as m from "@/paraglide/messages";
 import {
   EApplicationSource,
   EEmploymentType,
-  EWorkLocation,
+  ELocation,
 } from "@/shared/rest-api/interface";
 
 export const employmentTypeLabelMap: Record<EEmploymentType, () => string> = {
@@ -14,12 +14,12 @@ export const employmentTypeLabelMap: Record<EEmploymentType, () => string> = {
   [EEmploymentType.TEMPORARY]: m.employment_type_label_TEMPORARY,
 };
 
-export const workLocationLabelMap: Record<EWorkLocation, () => string> = {
-  [EWorkLocation.REMOTE]: m.work_location_label_REMOTE,
-  [EWorkLocation.HYBRID]: m.work_location_label_HYBRID,
-  [EWorkLocation.ON_SITE]: m.work_location_label_ON_SITE,
-  [EWorkLocation.FLEXIBLE]: m.work_location_label_FLEXIBLE,
-  [EWorkLocation.OTHER]: m.work_location_label_OTHER,
+export const locationLabelMap: Record<ELocation, () => string> = {
+  [ELocation.REMOTE]: m.location_label_REMOTE,
+  [ELocation.HYBRID]: m.location_label_HYBRID,
+  [ELocation.ON_SITE]: m.location_label_ON_SITE,
+  [ELocation.FLEXIBLE]: m.location_label_FLEXIBLE,
+  [ELocation.OTHER]: m.location_label_OTHER,
 };
 
 export const sourceLabelMap: Record<EApplicationSource, () => string> = {

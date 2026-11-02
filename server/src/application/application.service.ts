@@ -29,6 +29,7 @@ export class ApplicationService {
       ...(query.status?.length && { status: { in: query.status } }),
       ...(query.source && { source: query.source }),
       ...(query.employmentType && { employmentType: query.employmentType }),
+      ...(query.location && { location: query.location }),
       ...(query.search && {
         OR: [
           { company: { contains: query.search, mode: 'insensitive' } },

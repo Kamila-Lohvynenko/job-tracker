@@ -15,6 +15,7 @@ import {
   EApplicationStatus,
   EEmploymentType,
   EPrismaOrder,
+  ELocation,
   IApplicationRequest,
   IApplicationsRequest,
   IUpdateApplicationRequest,
@@ -51,6 +52,7 @@ export const useGetApplicationsQuery = () => {
     source: (searchParams.get("source") as EApplicationSource) || undefined,
     employmentType:
       (searchParams.get("employmentType") as EEmploymentType) || undefined,
+    location: (searchParams.get("location") as ELocation) || undefined,
     appliedFrom: searchParams.get("appliedFrom") || undefined,
     appliedTo: searchParams.get("appliedTo") || undefined,
   };

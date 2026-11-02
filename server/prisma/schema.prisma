@@ -59,7 +59,8 @@ model Application {
 
   source         ApplicationSource?
   jobLink        String?
-  location       String?
+  address        String?
+  location       Location?
   employmentType EmploymentType?
 
   salaryMin      Int?
@@ -156,4 +157,12 @@ enum EmploymentType {
   INTERNSHIP
   FREELANCE
   TEMPORARY
+}
+
+enum Location {
+  REMOTE
+  HYBRID
+  ON_SITE
+  FLEXIBLE
+  OTHER
 }

@@ -1,5 +1,5 @@
 export {
   employmentTypeLabelMap,
   sourceLabelMap,
-  workLocationLabelMap,
+  locationLabelMap,
 } from "./global.constant";

@@ -4,13 +4,13 @@ import { SourceItemComponent } from "@/shared/components/item/source";
 import { StatusChipComponent } from "@/shared/components/status-chip";
 import {
   employmentTypeLabelMap,
-  workLocationLabelMap,
+  locationLabelMap,
 } from "@/shared/constant";
 import {
   EApplicationSource,
   EApplicationStatus,
   EEmploymentType,
-  EWorkLocation,
+  ELocation,
 } from "@/shared/rest-api/interface";
 import {
   Calendar,
@@ -249,17 +249,17 @@ const AddApplicationFormComponent = () => {
 
         <Controller
           control={thisService.control}
-          name="workLocation"
+          name="location"
           render={({ field, fieldState }) => (
             <Select
               className="w-full"
-              placeholder={m.add_application_modal_work_location_placeholder()}
+              placeholder={m.add_application_modal_location_placeholder()}
               value={field.value || null}
               onChange={(value) => field.onChange(value ?? "")}
               isInvalid={fieldState.invalid}
             >
               <Label className="text-sm font-medium">
-                {m.add_application_modal_work_location_label()}
+                {m.add_application_modal_location_label()}
               </Label>
 
               <Select.Trigger className="py-3 border-border border rounded-md">
@@ -269,13 +269,13 @@ const AddApplicationFormComponent = () => {
 
               <Select.Popover>
                 <ListBox>
-                  {Object.values(EWorkLocation).map((workLocation) => {
-                    const label = workLocationLabelMap[workLocation]();
+                  {Object.values(ELocation).map((location) => {
+                    const label = locationLabelMap[location]();
 
                     return (
                       <ListBox.Item
-                        key={workLocation}
-                        id={workLocation}
+                        key={location}
+                        id={location}
                         textValue={label}
                       >
                         {label}
@@ -298,13 +298,13 @@ const AddApplicationFormComponent = () => {
         render={({ field, fieldState }) => (
           <TextField isInvalid={fieldState.invalid}>
             <Label className="text-sm font-medium">
-              {m.add_application_modal_location_label()}
+              {m.add_application_modal_address_label()}
             </Label>
 
             <div className="relative">
               <Input
                 {...field}
-                placeholder={m.add_application_modal_location_placeholder()}
+                placeholder={m.add_application_modal_address_placeholder()}
                 autoComplete="off"
                 fullWidth
               />
