@@ -11,13 +11,10 @@ export const statusLabelMap: Record<EApplicationStatus, () => string> = {
   [EApplicationStatus.APPLIED]: m.status_label_APPLIED,
   [EApplicationStatus.HR_SCREEN]: m.status_label_HR_SCREEN,
   [EApplicationStatus.INTERVIEW]: m.status_label_INTERVIEW,
-  [EApplicationStatus.TECHNICAL]: m.status_label_TECHNICAL,
   [EApplicationStatus.TAKE_HOME]: m.status_label_TAKE_HOME,
-  [EApplicationStatus.FINAL]: m.status_label_FINAL,
   [EApplicationStatus.OFFER]: m.status_label_OFFER,
   [EApplicationStatus.REJECTED]: m.status_label_REJECTED,
   [EApplicationStatus.WITHDRAWN]: m.status_label_WITHDRAWN,
-  [EApplicationStatus.ARCHIVED]: m.status_label_ARCHIVED,
 };
 
 // interface
@@ -40,19 +37,13 @@ export function useStatusChipService(props: IProps) {
         return "var(--application-status-hr-screen)";
       case EApplicationStatus.INTERVIEW:
         return "var(--application-status-interview)";
-      case EApplicationStatus.TECHNICAL:
-        return "var(--application-status-technical)";
       case EApplicationStatus.TAKE_HOME:
         return "var(--application-status-take-home)";
-      case EApplicationStatus.FINAL:
-        return "var(--application-status-final)";
       case EApplicationStatus.OFFER:
         return "var(--application-status-offer)";
       case EApplicationStatus.REJECTED:
         return "var(--application-status-rejected)";
       case EApplicationStatus.WITHDRAWN:
-        return "var(--application-status-withdrawn)";
-      case EApplicationStatus.ARCHIVED:
         return "var(--application-status-withdrawn)";
       default:
         return "var(--application-status-rejected)";
@@ -69,19 +60,13 @@ export function useStatusChipService(props: IProps) {
         return "var(--application-status-hr-screen-text)";
       case EApplicationStatus.INTERVIEW:
         return "var(--application-status-interview-text)";
-      case EApplicationStatus.TECHNICAL:
-        return "var(--application-status-technical-text)";
       case EApplicationStatus.TAKE_HOME:
         return "var(--application-status-take-home-text)";
-      case EApplicationStatus.FINAL:
-        return "var(--application-status-final-text)";
       case EApplicationStatus.OFFER:
         return "var(--application-status-offer-text)";
       case EApplicationStatus.REJECTED:
         return "var(--application-status-rejected-text)";
       case EApplicationStatus.WITHDRAWN:
-        return "var(--application-status-withdrawn-text)";
-      case EApplicationStatus.ARCHIVED:
         return "var(--application-status-withdrawn-text)";
       default:
         return "var(--application-status-rejected-text)";

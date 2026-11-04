@@ -80,13 +80,10 @@
   "status_label_APPLIED": "Beworben",
   "status_label_HR_SCREEN": "HR-Screening",
   "status_label_INTERVIEW": "Vorstellungsgespräch",
-  "status_label_TECHNICAL": "Technisches Interview",
   "status_label_TAKE_HOME": "Hausaufgabe",
-  "status_label_FINAL": "Endphase",
   "status_label_OFFER": "Zugeteilt",
   "status_label_REJECTED": "Abgelehnt",
   "status_label_WITHDRAWN": "Abgebrochen",
-  "status_label_ARCHIVED": "Archiviert",
 
   "employment_type_label_FULL_TIME": "Vollzeit",
   "employment_type_label_PART_TIME": "Teilzeit",

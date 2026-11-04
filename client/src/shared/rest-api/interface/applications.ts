@@ -17,13 +17,10 @@ export enum EApplicationStatus {
   APPLIED = "APPLIED",
   HR_SCREEN = "HR_SCREEN",
   INTERVIEW = "INTERVIEW",
-  TECHNICAL = "TECHNICAL",
   TAKE_HOME = "TAKE_HOME",
-  FINAL = "FINAL",
   OFFER = "OFFER",
   REJECTED = "REJECTED",
   WITHDRAWN = "WITHDRAWN",
-  ARCHIVED = "ARCHIVED",
 }
 
 export enum EApplicationSource {

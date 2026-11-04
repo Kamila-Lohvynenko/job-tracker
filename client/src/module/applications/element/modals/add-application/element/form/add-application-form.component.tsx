@@ -149,7 +149,7 @@ const AddApplicationFormComponent = () => {
 
               <DateField.Group
                 fullWidth
-                className="py-[22px] border border-border rounded-md"
+                className="py-5.5 border border-border rounded-md"
               >
                 <DateField.Input>
                   {(segment) => <DateField.Segment segment={segment} />}

@@ -80,13 +80,10 @@
   "status_label_APPLIED": "Applied",
   "status_label_HR_SCREEN": "HR Screen",
   "status_label_INTERVIEW": "Interview",
-  "status_label_TECHNICAL": "Technical",
   "status_label_TAKE_HOME": "Take Home",
-  "status_label_FINAL": "Final",
   "status_label_OFFER": "Offer",
   "status_label_REJECTED": "Rejected",
   "status_label_WITHDRAWN": "Withdrawn",
-  "status_label_ARCHIVED": "Archived",
 
   "employment_type_label_FULL_TIME": "Full Time",
   "employment_type_label_PART_TIME": "Part Time",
