@@ -7,6 +7,7 @@ import { EmailModule } from './email/email.module.js';
 import { PrismaModule } from './prisma/prisma.module.js';
 import { UserModule } from './user/user.module.js';
 import { VerificationModule } from './verification/verification.module.js';
+import { ApplicationEventModule } from './application-event/application-event.module.js';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { VerificationModule } from './verification/verification.module.js';
     VerificationModule,
     UserModule,
     ApplicationModule,
+    ApplicationEventModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,5 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Prisma } from 'generated/prisma/client.js';
+import { Prisma } from '../../generated/prisma/client.js';
+import {
+  ApplicationEventStatus,
+  ApplicationEventType,
+  ApplicationStatus,
+} from '../../generated/prisma/enums.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import {
   ApplicationQueryDto,
@@ -87,14 +92,32 @@ export class ApplicationService {
     userId: string,
     data: CreateApplicationDto,
   ): Promise<ApplicationResponseDto> {
-    const application = await this.prismaService.application.create({
-      data: {
-        ...data,
-        userId,
-      },
-    });
+    const status = data.status ?? ApplicationStatus.APPLIED;
 
-    return application;
+    return this.prismaService.$transaction(async (tx) => {
+      const application = await tx.application.create({
+        data: {
+          ...data,
+          userId,
+          status,
+        },
+      });
+
+      if (status !== ApplicationStatus.WISHLIST) {
+        await tx.applicationEvent.create({
+          data: {
+            userId,
+            applicationId: application.id,
+            type: ApplicationEventType.APPLICATION_SUBMITTED,
+            status: ApplicationEventStatus.COMPLETED,
+            title: 'Application',
+            eventDate: new Date(data.appliedAt),
+          },
+        });
+      }
+
+      return application;
+    });
   }
 
   async updateApplication(
@@ -118,13 +141,17 @@ export class ApplicationService {
     userId: string,
     applicationId: string,
   ): Promise<ApplicationResponseDto> {
-    const application = await this.prismaService.application.delete({
+    const application = await this.prismaService.application.findUnique({
       where: { id: applicationId, userId },
     });
 
     if (!application) {
       throw new NotFoundException('Application not found');
     }
+
+    await this.prismaService.application.delete({
+      where: { id: applicationId, userId },
+    });
 
     return application;
   }
