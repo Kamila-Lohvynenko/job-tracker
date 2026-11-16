@@ -16,11 +16,13 @@ const ApplicationTimelineTabComponent = () => {
       {applicationEvents?.items.length === 0 ? (
         <div>No application events found</div>
       ) : (
-        <ul>
-          {applicationEvents?.items.map((event) => (
+        <ul className="flex flex-col">
+          {applicationEvents?.items.map((event, index, items) => (
             <ApplicationEventsListCardComponent
               key={event.id}
               applicationEvent={event}
+              isFirst={index === 0}
+              isLast={index === items.length - 1}
             />
           ))}
         </ul>

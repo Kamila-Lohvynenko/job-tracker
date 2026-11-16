@@ -27,7 +27,7 @@ const SigninModule = () => {
           src={SigninImage}
           loading="eager"
           alt="Signin"
-          className="w-[300px] h-[300px]"
+          className="w-75 h-75"
         />
       </div>
 

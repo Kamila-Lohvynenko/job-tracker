@@ -12,15 +12,15 @@ const ApplicationTabsComponent = () => {
 
   return (
     <Tabs
-      className="w-full max-w-md mt-4"
+      className="mt-4 w-full"
       variant="secondary"
       selectedKey={activeTab}
       onSelectionChange={(key) => setActiveTab(key as string)}
     >
-      <Tabs.ListContainer>
-        <Tabs.List aria-label="Options">
+      <Tabs.ListContainer className="w-full">
+        <Tabs.List aria-label="Options" className="w-full">
           {APPLICATION_TABS.map((tab) => (
-            <Tabs.Tab key={tab.id} id={tab.id}>
+            <Tabs.Tab key={tab.id} id={tab.id} className="flex-1">
               {tab.label}
               <Tabs.Indicator className="bg-primary" />
             </Tabs.Tab>
