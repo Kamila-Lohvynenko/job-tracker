@@ -2,6 +2,7 @@
 
 import { useApplicationService } from "./application.service";
 import { ApplicationHeaderComponent } from "./element/header";
+import { ApplicationEventModalComponent } from "./element/modals/application-event";
 import { ApplicationTabsComponent } from "./element/tabs";
 import { ApplicationTopComponent } from "./element/top";
 
@@ -17,6 +18,8 @@ function ApplicationModule() {
       <ApplicationTopComponent applicationId={applicationId} />
 
       <ApplicationTabsComponent />
+
+      <ApplicationEventModalComponent />
     </div>
   );
 }

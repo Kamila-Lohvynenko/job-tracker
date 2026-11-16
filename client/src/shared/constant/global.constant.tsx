@@ -1,5 +1,7 @@
 import * as m from "@/paraglide/messages";
 import {
+  EApplicationEventStatus,
+  EApplicationEventType,
   EApplicationSource,
   EEmploymentType,
   ELocation,
@@ -20,6 +22,36 @@ export const locationLabelMap: Record<ELocation, () => string> = {
   [ELocation.ON_SITE]: m.location_label_ON_SITE,
   [ELocation.FLEXIBLE]: m.location_label_FLEXIBLE,
   [ELocation.OTHER]: m.location_label_OTHER,
+};
+
+export const eventTypeLabelMap: Record<EApplicationEventType, () => string> = {
+  [EApplicationEventType.APPLICATION_SUBMITTED]:
+    m.application_event_type_APPLICATION_SUBMITTED,
+  [EApplicationEventType.HR_INTERVIEW]: m.application_event_type_HR_INTERVIEW,
+  [EApplicationEventType.INTERVIEW]: m.application_event_type_INTERVIEW,
+  [EApplicationEventType.TECHNICAL_INTERVIEW]:
+    m.application_event_type_TECHNICAL_INTERVIEW,
+  [EApplicationEventType.LIVE_CODING]: m.application_event_type_LIVE_CODING,
+  [EApplicationEventType.SYSTEM_DESIGN]: m.application_event_type_SYSTEM_DESIGN,
+  [EApplicationEventType.TAKE_HOME_TASK]:
+    m.application_event_type_TAKE_HOME_TASK,
+  [EApplicationEventType.FINAL_INTERVIEW]:
+    m.application_event_type_FINAL_INTERVIEW,
+  [EApplicationEventType.OFFER]: m.application_event_type_OFFER,
+  [EApplicationEventType.REJECTION]: m.application_event_type_REJECTION,
+  [EApplicationEventType.WITHDRAWN]: m.application_event_type_WITHDRAWN,
+  [EApplicationEventType.FOLLOW_UP]: m.application_event_type_FOLLOW_UP,
+  [EApplicationEventType.NOTE]: m.application_event_type_NOTE,
+  [EApplicationEventType.CUSTOM]: m.application_event_type_CUSTOM,
+};
+
+export const eventStatusLabelMap: Record<
+  EApplicationEventStatus,
+  () => string
+> = {
+  [EApplicationEventStatus.SCHEDULED]: m.application_event_status_SCHEDULED,
+  [EApplicationEventStatus.COMPLETED]: m.application_event_status_COMPLETED,
+  [EApplicationEventStatus.CANCELLED]: m.application_event_status_CANCELLED,
 };
 
 export const sourceLabelMap: Record<EApplicationSource, () => string> = {

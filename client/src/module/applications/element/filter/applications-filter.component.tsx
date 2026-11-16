@@ -1,6 +1,6 @@
 "use client";
 
-import { StatusChipComponent } from "@/shared/components/status-chip";
+import { StatusChipComponent } from "@/shared/components/chip/status-chip";
 import { EApplicationStatus } from "@/shared/rest-api/interface";
 import { useApplicationsFilterService } from "./applications-filter.service";
 

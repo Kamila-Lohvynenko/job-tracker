@@ -171,5 +171,28 @@
   "application_event_type_WITHDRAWN": "Abgebrochen",
   "application_event_type_FOLLOW_UP": "Follow-up",
   "application_event_type_NOTE": "Notiz",
-  "application_event_type_CUSTOM": "Benutzerdefiniert"
+  "application_event_type_CUSTOM": "Benutzerdefiniert",
+
+  "application_event_status_SCHEDULED": "Geplant",
+  "application_event_status_COMPLETED": "Abgeschlossen",
+  "application_event_status_CANCELLED": "Abgesagt",
+
+  "application_event_modal_create_title": "Ereignis hinzufügen",
+  "application_event_modal_edit_title": "Ereignis bearbeiten",
+  "application_event_modal_type_label": "Typ",
+  "application_event_modal_type_placeholder": "Typ auswählen",
+  "application_event_modal_status_label": "Status",
+  "application_event_modal_status_placeholder": "Status auswählen",
+  "application_event_modal_title_label": "Titel",
+  "application_event_modal_title_placeholder": "z.B. HR-Screening",
+  "application_event_modal_description_label": "Beschreibung",
+  "application_event_modal_description_placeholder": "Details zu diesem Ereignis hinzufügen...",
+  "application_event_modal_date_label": "Datum",
+  "application_event_modal_update_status_label": "Bewerbungsstatus aktualisieren",
+  "application_event_modal_cancel_button_label": "Abbrechen",
+  "application_event_modal_confirm_button_label": "Speichern",
+  "application_event_modal_toast_create_success": "Ereignis hinzugefügt",
+  "application_event_modal_toast_create_error": "Ereignis konnte nicht hinzugefügt werden",
+  "application_event_modal_toast_update_success": "Ereignis aktualisiert",
+  "application_event_modal_toast_update_error": "Ereignis konnte nicht aktualisiert werden"
 }

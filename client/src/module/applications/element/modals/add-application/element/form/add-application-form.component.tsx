@@ -1,7 +1,7 @@
 import * as m from "@/paraglide/messages";
+import { StatusChipComponent } from "@/shared/components/chip/status-chip";
 import { CompanyItemComponent } from "@/shared/components/item/company";
 import { SourceItemComponent } from "@/shared/components/item/source";
-import { StatusChipComponent } from "@/shared/components/status-chip";
 import { employmentTypeLabelMap, locationLabelMap } from "@/shared/constant";
 import {
   EApplicationSource,
@@ -147,10 +147,7 @@ const AddApplicationFormComponent = () => {
                 {m.add_application_modal_applied_at_label()}
               </Label>
 
-              <DateField.Group
-                fullWidth
-                className="py-5.5 border border-border rounded-md"
-              >
+              <DateField.Group fullWidth>
                 <DateField.Input>
                   {(segment) => <DateField.Segment segment={segment} />}
                 </DateField.Input>

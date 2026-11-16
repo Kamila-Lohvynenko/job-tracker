@@ -1,20 +1,23 @@
-import * as m from "@/paraglide/messages";
-import { EApplicationEventType } from "@/shared/rest-api/interface/application-events";
+import { useApplicationStore } from "@/module/application/application.store";
+import { eventTypeLabelMap } from "@/shared/constant";
+import { IApplicationEventDto } from "@/shared/rest-api/interface";
 
-// interfaces
-type ApplicationEventTypeMessageKey =
-  `application_event_type_${EApplicationEventType}`;
+export const ApplicationEventsListCardService = (
+  applicationEvent: IApplicationEventDto,
+) => {
+  const handleApplicationStore = useApplicationStore(
+    (state) => state.handleApplicationStore,
+  );
 
-// service
-export const ApplicationEventsListCardService = () => {
-  const getApplicationEventTypeLabel = (type: EApplicationEventType) => {
-    const key: ApplicationEventTypeMessageKey = `application_event_type_${type}`;
-
-    return m[key]();
+  const openEditModal = () => {
+    handleApplicationStore({
+      isEventModalOpen: true,
+      eventToEdit: applicationEvent,
+    });
   };
 
-  // return
   return {
-    getApplicationEventTypeLabel,
+    openEditModal,
+    typeLabel: eventTypeLabelMap[applicationEvent.type](),
   };
 };

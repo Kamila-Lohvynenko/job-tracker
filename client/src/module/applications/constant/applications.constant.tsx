@@ -1,8 +1,8 @@
 import * as m from "@/paraglide/messages";
 import { ReactNode } from "react";
 
+import { StatusChipComponent } from "@/shared/components/chip/status-chip";
 import { IDataTableColumn } from "@/shared/components/data-table";
-import { StatusChipComponent } from "@/shared/components/status-chip";
 
 import { ActionComponent } from "@/shared/components/action";
 import { CompanyItemComponent } from "@/shared/components/item/company";

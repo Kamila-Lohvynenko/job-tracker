@@ -122,6 +122,13 @@
   --application-event-custom-text: #475569;
   --application-event-custom-bg: #f1f5f9;
 
+  --application-event-status-scheduled: #f59e0b;
+  --application-event-status-scheduled-text: #b45309;
+  --application-event-status-completed: #22c55e;
+  --application-event-status-completed-text: #15803d;
+  --application-event-status-cancelled: #6b7280;
+  --application-event-status-cancelled-text: #4b5563;
+
   /* Shadows / glow */
   --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
   --primary-glow: 0 0 28px rgba(93, 72, 220, 0.28);
@@ -271,6 +278,79 @@ body {
     &[data-invalid="true"] {
       @apply border-none bg-danger-soft text-danger;
     }
+  }
+
+  .date-input-group {
+    @apply h-auto w-full rounded-md border border-border bg-surface text-sm shadow-sm transition-colors;
+
+    &:hover,
+    &[data-hovered="true"] {
+      @apply border-border-strong bg-surface-soft;
+    }
+
+    &:is(:focus-within, [data-focus-within="true"]):not(
+        :has(
+          [data-slot="date-picker-trigger"]:focus,
+          [data-slot="date-picker-trigger"][data-focused="true"],
+          [data-slot="date-range-picker-trigger"]:focus,
+          [data-slot="date-range-picker-trigger"][data-focused="true"]
+        )
+      ),
+    &:has(
+      [data-slot="date-picker-trigger"]:focus,
+      [data-slot="date-picker-trigger"][data-focused="true"]
+    ) {
+      @apply border-primary ring-1 ring-primary/10 outline-none;
+      --tw-ring-offset-width: 0px;
+    }
+
+    &[data-invalid="true"] {
+      @apply border-none bg-danger-soft text-danger;
+    }
+  }
+
+  .date-input-group__input {
+    @apply px-4 py-3 text-sm;
+  }
+
+  .date-picker {
+    @apply w-full;
+  }
+
+  .date-picker__trigger:focus,
+  .date-picker__trigger:focus-visible,
+  .date-picker__trigger[data-focused="true"],
+  .date-picker__trigger[data-focus-visible="true"] {
+    @apply ring-0 shadow-none outline-none;
+    --tw-ring-shadow: 0 0 #0000;
+  }
+
+  .date-input-group__segment {
+    &:focus,
+    &[data-focused="true"] {
+      @apply bg-primary-soft text-primary;
+    }
+  }
+
+  .date-input-group:focus-within [data-slot="date-picker-trigger"],
+  .date-input-group[data-focus-within="true"] [data-slot="date-picker-trigger"] {
+    @apply text-primary;
+  }
+
+  .checkbox__control {
+    @apply border-primary;
+  }
+
+  .checkbox[data-selected="true"] .checkbox__control::before,
+  .checkbox[aria-checked="true"] .checkbox__control::before {
+    background-color: var(--primary);
+  }
+
+  .checkbox[data-selected="true"]
+    [data-slot="checkbox-default-indicator--checkmark"],
+  .checkbox[aria-checked="true"]
+    [data-slot="checkbox-default-indicator--checkmark"] {
+    color: var(--primary-foreground);
   }
 
   .input-otp {

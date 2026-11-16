@@ -1,5 +1,5 @@
+import { StatusChipComponent } from "@/shared/components/chip/status-chip";
 import { CompanyItemComponent } from "@/shared/components/item/company";
-import { StatusChipComponent } from "@/shared/components/status-chip";
 import { locationLabelMap } from "@/shared/constant";
 import { EApplicationStatus } from "@/shared/rest-api/interface";
 import { House, MapPin } from "lucide-react";
@@ -36,14 +36,13 @@ const ApplicationTopComponent = (props: IApplicationTopComponentProps) => {
             </div>
           )}
 
-          {application?.location &&
-            locationLabelMap[application.location] && (
-              <div className="flex items-center gap-2">
-                <House className="w-4 h-4" />
+          {application?.location && locationLabelMap[application.location] && (
+            <div className="flex items-center gap-2">
+              <House className="w-4 h-4" />
 
-                <span>{locationLabelMap[application.location]()}</span>
-              </div>
-            )}
+              <span>{locationLabelMap[application.location]()}</span>
+            </div>
+          )}
         </div>
 
         <StatusChipComponent

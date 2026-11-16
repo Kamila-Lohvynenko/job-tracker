@@ -171,5 +171,28 @@
   "application_event_type_WITHDRAWN": "Withdrawn",
   "application_event_type_FOLLOW_UP": "Follow Up",
   "application_event_type_NOTE": "Note",
-  "application_event_type_CUSTOM": "Custom"
+  "application_event_type_CUSTOM": "Custom",
+
+  "application_event_status_SCHEDULED": "Scheduled",
+  "application_event_status_COMPLETED": "Completed",
+  "application_event_status_CANCELLED": "Cancelled",
+
+  "application_event_modal_create_title": "Add event",
+  "application_event_modal_edit_title": "Edit event",
+  "application_event_modal_type_label": "Type",
+  "application_event_modal_type_placeholder": "Select type",
+  "application_event_modal_status_label": "Status",
+  "application_event_modal_status_placeholder": "Select status",
+  "application_event_modal_title_label": "Title",
+  "application_event_modal_title_placeholder": "e.g. HR screening",
+  "application_event_modal_description_label": "Description",
+  "application_event_modal_description_placeholder": "Add details about this event...",
+  "application_event_modal_date_label": "Date",
+  "application_event_modal_update_status_label": "Update application status",
+  "application_event_modal_cancel_button_label": "Cancel",
+  "application_event_modal_confirm_button_label": "Save",
+  "application_event_modal_toast_create_success": "Event added",
+  "application_event_modal_toast_create_error": "Failed to add event",
+  "application_event_modal_toast_update_success": "Event updated",
+  "application_event_modal_toast_update_error": "Failed to update event"
 }

@@ -43,7 +43,7 @@ export const createApplicationEventApi = async (
   const response = await restApiFetcher.post(
     `${EApplicationsApi.API_APPLICATIONS}/${request.applicationId}/${EApplicationEventsApi.API_APPLICATION_EVENTS}`,
     {
-      body: JSON.stringify(request.data),
+      json: request.data,
     },
   );
 
@@ -54,10 +54,10 @@ export const createApplicationEventApi = async (
 export const updateApplicationEventApi = async (
   request: IUpdateApplicationEventRequest,
 ): Promise<IApplicationEventResponse> => {
-  const response = await restApiFetcher.put(
+  const response = await restApiFetcher.patch(
     `${EApplicationsApi.API_APPLICATIONS}/${request.applicationId}/${EApplicationEventsApi.API_APPLICATION_EVENTS}/${request.eventId}`,
     {
-      body: JSON.stringify(request.data),
+      json: request.data,
     },
   );
 
