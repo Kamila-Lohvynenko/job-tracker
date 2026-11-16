@@ -16,8 +16,15 @@ export const ApplicationEventsListCardService = (
     });
   };
 
+  const openDeleteModal = () => {
+    handleApplicationStore({
+      eventToDelete: applicationEvent,
+    });
+  };
+
   return {
     openEditModal,
+    openDeleteModal,
     typeLabel: eventTypeLabelMap[applicationEvent.type](),
   };
 };

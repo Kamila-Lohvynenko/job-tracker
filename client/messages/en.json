@@ -194,5 +194,12 @@
   "application_event_modal_toast_create_success": "Event added",
   "application_event_modal_toast_create_error": "Failed to add event",
   "application_event_modal_toast_update_success": "Event updated",
-  "application_event_modal_toast_update_error": "Failed to update event"
+  "application_event_modal_toast_update_error": "Failed to update event",
+
+  "remove_application_event_modal_title": "Delete event",
+  "remove_application_event_modal_description": "Are you sure you want to delete this event? This action cannot be undone.",
+  "remove_application_event_modal_confirm_button_label": "Delete",
+  "remove_application_event_modal_cancel_button_label": "Cancel",
+  "remove_application_event_modal_toast_success": "Event deleted",
+  "remove_application_event_modal_toast_error": "Failed to delete event"
 }

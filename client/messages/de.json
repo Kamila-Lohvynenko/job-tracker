@@ -194,5 +194,12 @@
   "application_event_modal_toast_create_success": "Ereignis hinzugefügt",
   "application_event_modal_toast_create_error": "Ereignis konnte nicht hinzugefügt werden",
   "application_event_modal_toast_update_success": "Ereignis aktualisiert",
-  "application_event_modal_toast_update_error": "Ereignis konnte nicht aktualisiert werden"
+  "application_event_modal_toast_update_error": "Ereignis konnte nicht aktualisiert werden",
+
+  "remove_application_event_modal_title": "Ereignis löschen",
+  "remove_application_event_modal_description": "Möchten Sie dieses Ereignis wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+  "remove_application_event_modal_confirm_button_label": "Löschen",
+  "remove_application_event_modal_cancel_button_label": "Abbrechen",
+  "remove_application_event_modal_toast_success": "Ereignis erfolgreich gelöscht",
+  "remove_application_event_modal_toast_error": "Fehler beim Löschen des Ereignisses"
 }

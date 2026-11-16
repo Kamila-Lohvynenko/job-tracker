@@ -3,6 +3,7 @@
 import { useApplicationService } from "./application.service";
 import { ApplicationHeaderComponent } from "./element/header";
 import { ApplicationEventModalComponent } from "./element/modals/application-event";
+import { RemoveApplicationEventModalComponent } from "./element/modals/remove-application-event";
 import { ApplicationTabsComponent } from "./element/tabs";
 import { ApplicationTopComponent } from "./element/top";
 
@@ -20,6 +21,8 @@ function ApplicationModule() {
       <ApplicationTabsComponent />
 
       <ApplicationEventModalComponent />
+
+      <RemoveApplicationEventModalComponent />
     </div>
   );
 }

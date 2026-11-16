@@ -5,6 +5,7 @@ import { devtools } from "zustand/middleware";
 interface IState {
   isEventModalOpen: boolean;
   eventToEdit: IApplicationEventDto | null;
+  eventToDelete: IApplicationEventDto | null;
 }
 
 interface IStore extends IState {
@@ -16,6 +17,7 @@ export const useApplicationStore = create<IStore>()(
     (set) => ({
       isEventModalOpen: false,
       eventToEdit: null,
+      eventToDelete: null,
 
       handleApplicationStore: (value: Partial<IState>) =>
         set((state: IState) => ({ ...state, ...value })),

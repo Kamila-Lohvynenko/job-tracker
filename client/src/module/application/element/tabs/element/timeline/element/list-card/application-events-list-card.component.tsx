@@ -1,5 +1,8 @@
 "use client";
 
+import * as m from "@/paraglide/messages";
+import { Button } from "@heroui/react";
+import { Trash } from "lucide-react";
 import { useParams } from "next/navigation";
 
 import { formatDate } from "@/shared/utils";
@@ -36,7 +39,7 @@ export const ApplicationEventsListCardComponent = (
 
   // render
   return (
-    <div className="grid w-full grid-cols-[2.5rem_minmax(0,1fr)] items-start gap-x-3 lg:grid-cols-[9rem_2.5rem_minmax(0,1fr)] lg:gap-x-4">
+    <div className="grid w-full grid-cols-[2.5rem_minmax(0,1fr)_auto] items-start gap-x-3 lg:grid-cols-[9rem_2.5rem_minmax(0,1fr)_auto] lg:gap-x-4">
       <div className="col-start-1 row-start-1 hidden flex-col py-2 mt-2.5 leading-tight lg:flex">
         {formattedDate && (
           <>
@@ -115,6 +118,18 @@ export const ApplicationEventsListCardComponent = (
             variant="light"
           />
         </div>
+      </div>
+
+      <div className="self-center col-start-3 row-start-1 flex items-center py-2 lg:col-start-4">
+        <Button
+          isIconOnly
+          variant="outline"
+          aria-label={m.remove_application_event_modal_title()}
+          onPress={thisService.openDeleteModal}
+          className="text-foreground-muted hover:text-foreground"
+        >
+          <Trash className="size-4" />
+        </Button>
       </div>
     </div>
   );
