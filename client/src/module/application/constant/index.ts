@@ -1,1 +1,4 @@
-export { APPLICATION_TABS } from "./application.constant";
+export {
+  APPLICATION_EVENT_CONFIG,
+  APPLICATION_TABS,
+} from "./application.constant";

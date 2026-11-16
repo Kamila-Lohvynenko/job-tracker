@@ -1,3 +1,4 @@
+export * from "./application-events";
 export * from "./applications";
 export * from "./config.interface";
 export * from "./signin.interface";

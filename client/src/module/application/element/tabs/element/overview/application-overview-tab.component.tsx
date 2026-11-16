@@ -1,19 +1,25 @@
 import { Tabs } from "@heroui/react";
 
 import { employmentTypeLabelMap, sourceLabelMap } from "@/shared/constant";
+import { formatDate } from "@/shared/utils";
+import { useParams } from "next/navigation";
 import { useApplicationOverviewTabService } from "./application-overview-tab.service";
 
 const ApplicationOverviewTabComponent = () => {
   const { application } = useApplicationOverviewTabService();
 
-  console.log(application);
+  const { locale = "en" } = useParams<{ locale: string }>();
 
   return (
     <Tabs.Panel className="pt-4" id="overview">
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
           <p className="text-foreground-subtle">Created At</p>
-          <p>{application?.createdAt}</p>
+          <p>
+            {application?.createdAt
+              ? formatDate(application?.createdAt, locale).dateLabel
+              : "-"}
+          </p>
         </div>
 
         <div className="flex flex-col gap-2 capitalize">

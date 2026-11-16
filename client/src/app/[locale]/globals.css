@@ -64,6 +64,64 @@
   --application-status-withdrawn: #9ca3af;
   --application-status-withdrawn-text: #6b7280;
 
+  /* Application Event Types */
+
+  --application-event-submitted: #3b82f6;
+  --application-event-submitted-text: #1d4ed8;
+  --application-event-submitted-bg: #eff6ff;
+
+  --application-event-hr-interview: #f59e0b;
+  --application-event-hr-interview-text: #b45309;
+  --application-event-hr-interview-bg: #fffbeb;
+
+  --application-event-interview: #06b6d4;
+  --application-event-interview-text: #0f766e;
+  --application-event-interview-bg: #ecfeff;
+
+  --application-event-technical-interview: #6366f1;
+  --application-event-technical-interview-text: #4338ca;
+  --application-event-technical-interview-bg: #eef2ff;
+
+  --application-event-live-coding: #8b5cf6;
+  --application-event-live-coding-text: #6d28d9;
+  --application-event-live-coding-bg: #f5f3ff;
+
+  --application-event-system-design: #0d9488;
+  --application-event-system-design-text: #0f766e;
+  --application-event-system-design-bg: #f0fdfa;
+
+  --application-event-take-home-task: #f97316;
+  --application-event-take-home-task-text: #c2410c;
+  --application-event-take-home-task-bg: #fff7ed;
+
+  --application-event-final-interview: #d946ef;
+  --application-event-final-interview-text: #a21caf;
+  --application-event-final-interview-bg: #fdf4ff;
+
+  --application-event-offer: #22c55e;
+  --application-event-offer-text: #15803d;
+  --application-event-offer-bg: #f0fdf4;
+
+  --application-event-rejection: #6b7280;
+  --application-event-rejection-text: #4b5563;
+  --application-event-rejection-bg: #f3f4f6;
+
+  --application-event-withdrawn: #9ca3af;
+  --application-event-withdrawn-text: #6b7280;
+  --application-event-withdrawn-bg: #f9fafb;
+
+  --application-event-follow-up: #0ea5e9;
+  --application-event-follow-up-text: #0369a1;
+  --application-event-follow-up-bg: #f0f9ff;
+
+  --application-event-note: #10b981;
+  --application-event-note-text: #047857;
+  --application-event-note-bg: #ecfdf5;
+
+  --application-event-custom: #64748b;
+  --application-event-custom-text: #475569;
+  --application-event-custom-bg: #f1f5f9;
+
   /* Shadows / glow */
   --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
   --primary-glow: 0 0 28px rgba(93, 72, 220, 0.28);
