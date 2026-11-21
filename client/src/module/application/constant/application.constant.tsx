@@ -1,3 +1,4 @@
+import * as m from "@/paraglide/messages";
 import { EApplicationEventType } from "@/shared/rest-api/interface/application-events";
 import {
   Award,
@@ -21,11 +22,11 @@ import {
 export const APPLICATION_TABS = [
   {
     id: "overview",
-    label: "Overview",
+    label: m.application_tab_overview,
   },
   {
     id: "timeline",
-    label: "Timeline",
+    label: m.application_tab_timeline,
   },
 ];
 

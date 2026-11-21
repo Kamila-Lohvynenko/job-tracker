@@ -1,5 +1,6 @@
 "use client";
 
+import * as m from "@/paraglide/messages";
 import { Button } from "@heroui/react";
 import { MoveLeft, PlusIcon } from "lucide-react";
 import { useApplicationHeaderService } from "./application-header.service";
@@ -17,7 +18,7 @@ const ApplicationHeaderComponent = () => {
         <MoveLeft className="size-4" />
 
         <p className="text-foreground-subtle font-medium">
-          Back to Applications
+          {m.header_back_to_dashboard_link_label()}
         </p>
       </div>
 
@@ -27,7 +28,7 @@ const ApplicationHeaderComponent = () => {
       >
         <PlusIcon className="size-4" />
 
-        <span>Add Event</span>
+        <span>{m.application_header_add_event_button_label()}</span>
       </Button>
     </div>
   );

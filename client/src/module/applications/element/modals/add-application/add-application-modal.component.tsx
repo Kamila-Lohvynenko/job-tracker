@@ -1,5 +1,6 @@
 "use client";
 
+import * as m from "@/paraglide/messages";
 import { Button, Modal } from "@heroui/react";
 import { FilePlusCorner } from "lucide-react";
 import { useAddApplicationModalService } from "./add-application-modal.service";
@@ -21,7 +22,7 @@ const AddApplicationModalComponent = () => {
               <FilePlusCorner className="size-5" />
             </Modal.Icon>
 
-            <Modal.Heading>Add New Application</Modal.Heading>
+            <Modal.Heading>{m.add_application_modal_title()}</Modal.Heading>
           </Modal.Header>
 
           <div className="my-4">
@@ -34,7 +35,7 @@ const AddApplicationModalComponent = () => {
               variant="secondary"
               className="bg-gray-200 text-primary hover:bg-gray-300"
             >
-              Cancel
+              {m.add_application_modal_cancel_button_label()}
             </Button>
 
             <Button
@@ -42,7 +43,7 @@ const AddApplicationModalComponent = () => {
               form={ADD_APPLICATION_FORM_ID}
               className="bg-primary text-white hover:bg-primary-hover"
             >
-              Confirm
+              {m.add_application_modal_submit_button_label()}
             </Button>
           </Modal.Footer>
         </Modal.Dialog>

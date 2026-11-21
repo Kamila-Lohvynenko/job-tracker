@@ -161,7 +161,7 @@ const AddApplicationFormComponent = () => {
               <FieldError>{fieldState.error?.message}</FieldError>
 
               <DatePicker.Popover>
-                <Calendar aria-label="Event date">
+                <Calendar aria-label={m.add_application_modal_calendar_aria_label()}>
                   <Calendar.Header>
                     <Calendar.YearPickerTrigger>
                       <Calendar.YearPickerTriggerHeading />

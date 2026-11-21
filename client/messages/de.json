@@ -201,5 +201,22 @@
   "remove_application_event_modal_confirm_button_label": "Löschen",
   "remove_application_event_modal_cancel_button_label": "Abbrechen",
   "remove_application_event_modal_toast_success": "Ereignis erfolgreich gelöscht",
-  "remove_application_event_modal_toast_error": "Fehler beim Löschen des Ereignisses"
+  "remove_application_event_modal_toast_error": "Fehler beim Löschen des Ereignisses",
+
+  "applications_page_title": "Anwendungen",
+  "applications_add_button_label": "Anwendung hinzufügen",
+  "add_application_modal_calendar_aria_label": "Bewerbungsdatum",
+
+  "application_header_add_event_button_label": "Ereignis hinzufügen",
+  "application_tabs_aria_label": "Optionen",
+  "application_tab_overview": "Übersicht",
+  "application_tab_timeline": "Verlauf",
+  "application_overview_created_at_label": "Erstellt am",
+  "application_overview_source_label": "Quelle",
+  "application_overview_salary_label": "Gehalt",
+  "application_overview_employment_type_label": "Beschäftigungsart",
+  "application_overview_job_link_label": "Stellenlink",
+  "application_overview_notes_label": "Notizen",
+  "application_timeline_loading": "Wird geladen...",
+  "application_timeline_empty": "Keine Ereignisse gefunden"
 }

@@ -1,3 +1,4 @@
+import * as m from "@/paraglide/messages";
 import { Tabs } from "@heroui/react";
 
 import { employmentTypeLabelMap, sourceLabelMap } from "@/shared/constant";
@@ -14,7 +15,9 @@ const ApplicationOverviewTabComponent = () => {
     <Tabs.Panel className="pt-4" id="overview">
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-          <p className="text-foreground-subtle">Created At</p>
+          <p className="text-foreground-subtle">
+            {m.application_overview_created_at_label()}
+          </p>
           <p>
             {application?.createdAt
               ? formatDate(application?.createdAt, locale).dateLabel
@@ -23,21 +26,27 @@ const ApplicationOverviewTabComponent = () => {
         </div>
 
         <div className="flex flex-col gap-2 capitalize">
-          <p className="text-foreground-subtle">Source</p>
+          <p className="text-foreground-subtle">
+            {m.application_overview_source_label()}
+          </p>
           <p>
             {application?.source ? sourceLabelMap[application?.source]() : "-"}
           </p>
         </div>
 
         <div className="flex flex-col gap-2">
-          <p className="text-foreground-subtle">Salary</p>
+          <p className="text-foreground-subtle">
+            {m.application_overview_salary_label()}
+          </p>
           <p>
             {application?.salaryMin} - {application?.salaryMax}
           </p>
         </div>
 
         <div className="flex flex-col gap-2">
-          <p className="text-foreground-subtle">Employment Type</p>
+          <p className="text-foreground-subtle">
+            {m.application_overview_employment_type_label()}
+          </p>
           <p>
             {application?.employmentType
               ? employmentTypeLabelMap[application?.employmentType]()
@@ -46,13 +55,17 @@ const ApplicationOverviewTabComponent = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <p className="text-foreground-subtle">Job Link</p>
+          <p className="text-foreground-subtle">
+            {m.application_overview_job_link_label()}
+          </p>
           <p>{application?.jobLink}</p>
         </div>
 
         {application?.notes && (
           <div className="flex flex-col gap-2">
-            <p className="text-foreground-subtle">Notes</p>
+            <p className="text-foreground-subtle">
+              {m.application_overview_notes_label()}
+            </p>
             <p>{application?.notes}</p>
           </div>
         )}

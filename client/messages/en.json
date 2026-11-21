@@ -201,5 +201,22 @@
   "remove_application_event_modal_confirm_button_label": "Delete",
   "remove_application_event_modal_cancel_button_label": "Cancel",
   "remove_application_event_modal_toast_success": "Event deleted",
-  "remove_application_event_modal_toast_error": "Failed to delete event"
+  "remove_application_event_modal_toast_error": "Failed to delete event",
+
+  "applications_page_title": "Applications",
+  "applications_add_button_label": "Add Application",
+  "add_application_modal_calendar_aria_label": "Applied date",
+
+  "application_header_add_event_button_label": "Add Event",
+  "application_tabs_aria_label": "Options",
+  "application_tab_overview": "Overview",
+  "application_tab_timeline": "Timeline",
+  "application_overview_created_at_label": "Created At",
+  "application_overview_source_label": "Source",
+  "application_overview_salary_label": "Salary",
+  "application_overview_employment_type_label": "Employment Type",
+  "application_overview_job_link_label": "Job Link",
+  "application_overview_notes_label": "Notes",
+  "application_timeline_loading": "Loading...",
+  "application_timeline_empty": "No application events found"
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import * as m from "@/paraglide/messages";
 import { useState } from "react";
 
 import { Tabs } from "@heroui/react";
@@ -18,10 +19,10 @@ const ApplicationTabsComponent = () => {
       onSelectionChange={(key) => setActiveTab(key as string)}
     >
       <Tabs.ListContainer className="w-full">
-        <Tabs.List aria-label="Options" className="w-full">
+        <Tabs.List aria-label={m.application_tabs_aria_label()} className="w-full">
           {APPLICATION_TABS.map((tab) => (
             <Tabs.Tab key={tab.id} id={tab.id} className="flex-1">
-              {tab.label}
+              {tab.label()}
               <Tabs.Indicator className="bg-primary" />
             </Tabs.Tab>
           ))}
