@@ -17,8 +17,10 @@ import { ApplicationService } from './application.service.js';
 import { ApplicationQueryDto } from './dto/application-query.dto.js';
 import {
   ApplicationResponseDto,
+  ApplicationSummaryResponseDto,
   ApplicationsResponseDto,
 } from './dto/application-response.dto.js';
+import { ApplicationSummaryQueryDto } from './dto/application-summary-query.dto.js';
 import { CreateApplicationDto } from './dto/create-application.dto.js';
 import { UpdateApplicationDto } from './dto/update-application.dto.js';
 
@@ -38,6 +40,20 @@ export class ApplicationController {
     }
 
     return this.applicationService.getApplications(userId, query);
+  }
+
+  @Get('summary')
+  getApplicationsSummary(
+    @CurrentUser() user: JwtUser | undefined,
+    @Query() query: ApplicationSummaryQueryDto,
+  ): Promise<ApplicationSummaryResponseDto> {
+    const userId = user?.id;
+
+    if (!userId) {
+      throw new UnauthorizedException('Unauthorized');
+    }
+
+    return this.applicationService.getApplicationsSummary(userId, query);
   }
 
   @Get(':id')

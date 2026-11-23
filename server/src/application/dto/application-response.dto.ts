@@ -31,3 +31,8 @@ export class ApplicationsResponseDto {
   totalPages: number;
   totalItems: number;
 }
+
+export class ApplicationSummaryResponseDto {
+  byStatus: Record<ApplicationStatus, number>;
+  appliedInRange: number;
+}

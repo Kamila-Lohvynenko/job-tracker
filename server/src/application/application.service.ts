@@ -12,8 +12,10 @@ import {
 } from './dto/application-query.dto.js';
 import {
   ApplicationResponseDto,
+  ApplicationSummaryResponseDto,
   ApplicationsResponseDto,
 } from './dto/application-response.dto.js';
+import { ApplicationSummaryQueryDto } from './dto/application-summary-query.dto.js';
 import { CreateApplicationDto } from './dto/create-application.dto.js';
 import { UpdateApplicationDto } from './dto/update-application.dto.js';
 
@@ -71,6 +73,49 @@ export class ApplicationService {
       totalPages,
       totalItems: total,
     };
+  }
+
+  async getApplicationsSummary(
+    userId: string,
+    query: ApplicationSummaryQueryDto,
+  ): Promise<ApplicationSummaryResponseDto> {
+    const appliedAt =
+      query.appliedFrom || query.appliedTo
+        ? {
+            ...(query.appliedFrom && { gte: new Date(query.appliedFrom) }),
+            ...(query.appliedTo && { lte: new Date(query.appliedTo) }),
+          }
+        : undefined;
+
+    const [grouped, appliedInRange] = await Promise.all([
+      this.prismaService.application.groupBy({
+        by: ['status'],
+        where: { userId },
+        _count: { _all: true },
+      }),
+      appliedAt
+        ? this.prismaService.application.count({
+            where: { userId, appliedAt },
+          })
+        : Promise.resolve(0),
+    ]);
+
+    const byStatus: Record<ApplicationStatus, number> = {
+      [ApplicationStatus.WISHLIST]: 0,
+      [ApplicationStatus.APPLIED]: 0,
+      [ApplicationStatus.HR_SCREEN]: 0,
+      [ApplicationStatus.INTERVIEW]: 0,
+      [ApplicationStatus.TAKE_HOME]: 0,
+      [ApplicationStatus.OFFER]: 0,
+      [ApplicationStatus.REJECTED]: 0,
+      [ApplicationStatus.WITHDRAWN]: 0,
+    };
+
+    for (const row of grouped) {
+      byStatus[row.status] = row._count._all;
+    }
+
+    return { byStatus, appliedInRange };
   }
 
   async getApplication(

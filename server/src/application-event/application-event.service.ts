@@ -8,8 +8,10 @@ import { PrismaService } from '../prisma/prisma.service.js';
 import {
   ApplicationEventResponseDto,
   ApplicationEventsResponseDto,
+  UpcomingApplicationEventsResponseDto,
 } from './dto/application-responce.dto.js';
 import { CreateApplicationEventDto } from './dto/create-application-event.dto.js';
+import { UpcomingEventsQueryDto } from './dto/upcoming-events-query.dto.js';
 import { UpdateApplicationEventDto } from './dto/update-application-event.dto.js';
 
 const applicationStatusByEventType: Partial<
@@ -66,6 +68,41 @@ export class ApplicationEventService {
     return {
       items: events,
       totalItems: events.length,
+    };
+  }
+
+  async getUpcomingEvents(
+    userId: string,
+    query: UpcomingEventsQueryDto,
+  ): Promise<UpcomingApplicationEventsResponseDto> {
+    const where = {
+      userId,
+      status: ApplicationEventStatus.SCHEDULED,
+      eventDate: { gte: new Date() },
+    };
+
+    const [events, totalItems] = await Promise.all([
+      this.prismaService.applicationEvent.findMany({
+        where,
+        orderBy: { eventDate: 'asc' },
+        take: query.limit,
+        select: {
+          ...applicationEventSelect,
+          application: {
+            select: { company: true, role: true },
+          },
+        },
+      }),
+      this.prismaService.applicationEvent.count({ where }),
+    ]);
+
+    return {
+      items: events.map(({ application, ...event }) => ({
+        ...event,
+        company: application.company,
+        role: application.role,
+      })),
+      totalItems,
     };
   }
 
