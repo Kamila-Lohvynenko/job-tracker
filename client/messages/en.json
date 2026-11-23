@@ -218,5 +218,18 @@
   "application_overview_job_link_label": "Job Link",
   "application_overview_notes_label": "Notes",
   "application_timeline_loading": "Loading...",
-  "application_timeline_empty": "No application events found"
+  "application_timeline_empty": "No application events found",
+
+  "dashboard_greeting": "Hello, {name}",
+  "dashboard_greeting_fallback": "Hello",
+  "dashboard_summary_active": "You have {count} active applications.",
+  "dashboard_summary_with_next": "You have {count} active applications. Next up: {title} at {company} on {date}.",
+  "dashboard_empty_title": "No applications yet",
+  "dashboard_empty_description": "Add your first application to start tracking your search.",
+  "dashboard_counter_active": "Active",
+  "dashboard_counter_in_progress": "In progress",
+  "dashboard_counter_offers": "Offers",
+  "dashboard_counter_this_week": "Applied this week",
+  "dashboard_upcoming_title": "Upcoming",
+  "dashboard_upcoming_empty": "No upcoming events"
 }

@@ -4,12 +4,14 @@ import {
   EApplicationEventsKey,
   IApplicationEventRequest,
   IApplicationEventsRequest,
+  IUpcomingEventsRequest,
 } from "../../interface";
 import {
   createApplicationEventApi,
   deleteApplicationEventApi,
   getApplicationEventApi,
   getApplicationEventsApi,
+  getUpcomingEventsApi,
   updateApplicationEventApi,
 } from "./application-events.api";
 
@@ -26,6 +28,19 @@ export const useGetApplicationEventsQuery = (
   request: IApplicationEventsRequest,
 ) => {
   return useQuery(applicationEventsQueryOptions(request));
+};
+
+// upcoming events query options
+const upcomingEventsQueryOptions = (request: IUpcomingEventsRequest) => {
+  return queryOptions({
+    queryKey: [EApplicationEventsKey.UPCOMING_EVENTS_QUERY, request],
+    queryFn: () => getUpcomingEventsApi(request),
+  });
+};
+
+// get upcoming events query hook
+export const useGetUpcomingEventsQuery = (request: IUpcomingEventsRequest) => {
+  return useQuery(upcomingEventsQueryOptions(request));
 };
 
 // application event query options

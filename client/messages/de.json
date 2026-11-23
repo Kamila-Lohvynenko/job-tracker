@@ -218,5 +218,18 @@
   "application_overview_job_link_label": "Stellenlink",
   "application_overview_notes_label": "Notizen",
   "application_timeline_loading": "Wird geladen...",
-  "application_timeline_empty": "Keine Ereignisse gefunden"
+  "application_timeline_empty": "Keine Ereignisse gefunden",
+
+  "dashboard_greeting": "Hallo, {name}",
+  "dashboard_greeting_fallback": "Hallo",
+  "dashboard_summary_active": "Sie haben {count} aktive Bewerbungen.",
+  "dashboard_summary_with_next": "Sie haben {count} aktive Bewerbungen. Als Nächstes: {title} bei {company} am {date}.",
+  "dashboard_empty_title": "Noch keine Bewerbungen",
+  "dashboard_empty_description": "Fügen Sie Ihre erste Bewerbung hinzu, um Ihre Suche im Blick zu behalten.",
+  "dashboard_counter_active": "Aktiv",
+  "dashboard_counter_in_progress": "In Bearbeitung",
+  "dashboard_counter_offers": "Angebote",
+  "dashboard_counter_this_week": "Diese Woche beworben",
+  "dashboard_upcoming_title": "Anstehende Termine",
+  "dashboard_upcoming_empty": "Keine anstehenden Termine"
 }

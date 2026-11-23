@@ -5,6 +5,8 @@ import {
   IApplicationResponse,
   IApplicationsRequest,
   IApplicationsResponse,
+  IApplicationsSummaryRequest,
+  IApplicationsSummaryResponse,
   ICreateApplicationRequest,
   IUpdateApplicationRequest,
 } from "../../interface";
@@ -16,6 +18,20 @@ export const getApplicationsApi = async (
   const response = await restApiFetcher.get(EApplicationsApi.API_APPLICATIONS, {
     searchParams: request as Record<string, string | number | boolean>,
   });
+
+  return response.json();
+};
+
+// get applications summary api
+export const getApplicationsSummaryApi = async (
+  request: IApplicationsSummaryRequest,
+): Promise<IApplicationsSummaryResponse> => {
+  const response = await restApiFetcher.get(
+    EApplicationsApi.API_APPLICATIONS_SUMMARY,
+    {
+      searchParams: request as Record<string, string | number | boolean>,
+    },
+  );
 
   return response.json();
 };

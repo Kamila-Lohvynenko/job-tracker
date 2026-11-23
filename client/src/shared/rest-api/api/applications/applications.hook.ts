@@ -18,6 +18,7 @@ import {
   ELocation,
   IApplicationRequest,
   IApplicationsRequest,
+  IApplicationsSummaryRequest,
   IUpdateApplicationRequest,
 } from "../../interface";
 import {
@@ -25,6 +26,7 @@ import {
   deleteApplicationApi,
   getApplicationApi,
   getApplicationsApi,
+  getApplicationsSummaryApi,
   updateApplicationApi,
 } from "./applications.api";
 
@@ -58,6 +60,23 @@ export const useGetApplicationsQuery = () => {
   };
 
   return useQuery(applicationsQueryOptions(params));
+};
+
+// applications summary query options
+const applicationsSummaryQueryOptions = (
+  request: IApplicationsSummaryRequest,
+) => {
+  return queryOptions({
+    queryKey: [EApplicationsKey.APPLICATIONS_SUMMARY_QUERY, request],
+    queryFn: () => getApplicationsSummaryApi(request),
+  });
+};
+
+// get applications summary query hook
+export const useGetApplicationsSummaryQuery = (
+  request: IApplicationsSummaryRequest,
+) => {
+  return useQuery(applicationsSummaryQueryOptions(request));
 };
 
 // application query options

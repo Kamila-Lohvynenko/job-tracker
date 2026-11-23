@@ -80,9 +80,14 @@ export function useAddApplicationFormService() {
       const response = await createApplicationMutation(payload);
 
       if (response.success) {
-        await queryClient.refetchQueries({
-          queryKey: [EApplicationsKey.APPLICATIONS_QUERY],
-        });
+        await Promise.all([
+          queryClient.refetchQueries({
+            queryKey: [EApplicationsKey.APPLICATIONS_QUERY],
+          }),
+          queryClient.refetchQueries({
+            queryKey: [EApplicationsKey.APPLICATIONS_SUMMARY_QUERY],
+          }),
+        ]);
         handleApplicationsStore({ modalType: null });
         toast.success(m.add_application_modal_toast_success());
       } else {

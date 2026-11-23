@@ -2,6 +2,7 @@ import { IApiResponse } from "./common";
 
 export enum EApplicationsApi {
   API_APPLICATIONS = "applications",
+  API_APPLICATIONS_SUMMARY = "applications/summary",
 }
 
 export enum EApplicationsKey {
@@ -10,6 +11,7 @@ export enum EApplicationsKey {
   CREATE_APPLICATION_MUTATION = "create_application_mutation",
   UPDATE_APPLICATION_MUTATION = "update_application_mutation",
   DELETE_APPLICATION_MUTATION = "delete_application_mutation",
+  APPLICATIONS_SUMMARY_QUERY = "applications_summary_query",
 }
 
 export enum EApplicationStatus {
@@ -107,6 +109,20 @@ export interface IApplicationRequest {
 
 export interface IApplicationResponse extends IApiResponse {
   data: IApplicationDto;
+}
+
+export interface IApplicationsSummaryRequest {
+  appliedFrom?: string;
+  appliedTo?: string;
+}
+
+export interface IApplicationsSummaryDto {
+  byStatus: Record<EApplicationStatus, number>;
+  appliedInRange: number;
+}
+
+export interface IApplicationsSummaryResponse extends IApiResponse {
+  data: IApplicationsSummaryDto;
 }
 
 export interface ICreateApplicationRequest {

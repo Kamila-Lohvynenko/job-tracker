@@ -3,6 +3,7 @@ import { IApiResponse } from "./common";
 
 export enum EApplicationEventsApi {
   API_APPLICATION_EVENTS = "events",
+  API_UPCOMING_EVENTS = "events/upcoming",
 }
 
 export enum EApplicationEventsKey {
@@ -11,6 +12,7 @@ export enum EApplicationEventsKey {
   CREATE_APPLICATION_EVENT_MUTATION = "create_application_event_mutation",
   UPDATE_APPLICATION_EVENT_MUTATION = "update_application_event_mutation",
   DELETE_APPLICATION_EVENT_MUTATION = "delete_application_event_mutation",
+  UPCOMING_EVENTS_QUERY = "upcoming_events_query",
 }
 
 export enum EApplicationEventStatus {
@@ -99,4 +101,22 @@ export interface IUpdateApplicationEventRequest extends Omit<
 export interface IDeleteApplicationEventRequest {
   applicationId: string;
   eventId: string;
+}
+
+export interface IUpcomingApplicationEventDto extends IApplicationEventDto {
+  company: string;
+  role: string;
+}
+
+export interface IUpcomingEventsRequest {
+  limit?: number;
+}
+
+export interface IUpcomingEventsListDto {
+  items: IUpcomingApplicationEventDto[];
+  totalItems: number;
+}
+
+export interface IUpcomingEventsResponse extends IApiResponse {
+  data: IUpcomingEventsListDto;
 }

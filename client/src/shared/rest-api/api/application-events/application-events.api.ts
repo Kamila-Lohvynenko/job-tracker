@@ -8,6 +8,8 @@ import {
   IApplicationEventsResponse,
   ICreateApplicationEventRequest,
   IDeleteApplicationEventRequest,
+  IUpcomingEventsRequest,
+  IUpcomingEventsResponse,
   IUpdateApplicationEventRequest,
 } from "../../interface";
 
@@ -19,6 +21,20 @@ export const getApplicationEventsApi = async (
     `${EApplicationsApi.API_APPLICATIONS}/${request.applicationId}/${EApplicationEventsApi.API_APPLICATION_EVENTS}`,
     {
       searchParams: request.params as Record<string, string | number | boolean>,
+    },
+  );
+
+  return response.json();
+};
+
+// get upcoming events api
+export const getUpcomingEventsApi = async (
+  request: IUpcomingEventsRequest,
+): Promise<IUpcomingEventsResponse> => {
+  const response = await restApiFetcher.get(
+    EApplicationEventsApi.API_UPCOMING_EVENTS,
+    {
+      searchParams: request as Record<string, string | number | boolean>,
     },
   );
 
