@@ -231,5 +231,10 @@
   "dashboard_counter_offers": "Offers",
   "dashboard_counter_this_week": "Applied this week",
   "dashboard_upcoming_title": "Upcoming",
-  "dashboard_upcoming_empty": "No upcoming events"
+  "dashboard_upcoming_empty": "No upcoming events",
+
+  "calendar_page_title": "Calendar",
+  "analytics_page_title": "Analytics",
+  "coming_soon_title": "Coming soon",
+  "coming_soon_description": "This page is still in the works."
 }

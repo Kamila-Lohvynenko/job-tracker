@@ -231,5 +231,10 @@
   "dashboard_counter_offers": "Angebote",
   "dashboard_counter_this_week": "Diese Woche beworben",
   "dashboard_upcoming_title": "Anstehende Termine",
-  "dashboard_upcoming_empty": "Keine anstehenden Termine"
+  "dashboard_upcoming_empty": "Keine anstehenden Termine",
+
+  "calendar_page_title": "Kalender",
+  "analytics_page_title": "Analysen",
+  "coming_soon_title": "Kommt bald",
+  "coming_soon_description": "Diese Seite ist noch in Arbeit."
 }

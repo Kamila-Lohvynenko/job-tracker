@@ -111,5 +111,7 @@ export const config = {
     "/signup",
     "/verify-email",
     "/applications/:path*",
+    "/calendar/:path*",
+    "/analytics/:path*",
   ],
 };
